@@ -1,0 +1,60 @@
+﻿<use master="Basic" />
+<viewdata model="NewClientReportInfo" />
+
+<content name="application-head">
+	<link type="text/css" href="${Url.Content("~/resources/reports/common.css")}" rel="stylesheet"/>
+	<link type="text/css" href="${Url.Content("~/resources/reports/new-client.css")}" rel="stylesheet"/>
+</content>
+
+<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>
+<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
+<div class="title">${Text("Reports.NewClient.Title")}</div>
+<div class="subtitle-location">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")}</div>
+<div class="subtitle-date-range">${Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate)}</div>
+
+<content name="table-header">
+	<thead>
+		<tr>
+			<th class="name">${Text("Reports.NewClient.Name.Label")}</th>
+			<th class="separator"></th>
+			<th class="description">${Text("Reports.NewClient.Description.Label")}</th>
+		</tr>
+	</thead>
+	<tr class="hr">
+		<td colspan="3"></td>
+	</tr>
+</content>
+
+<content name="totals">
+	<tr class="total">
+		<td class="name">${Text("Reports.NewClient.Total.Label")}</td>
+		<td class="separator"></td>
+		<td class="description">${Model.Rows.Count}</td>
+	</tr>
+	<tr class="hr">
+		<td colspan="3"></td>
+	</tr>
+</content>
+
+<for each="var page in new int[Model.Pages]">
+	<div class="page-break" if="pageIndex > 0"></div>
+	<table id="newClients">
+		<use content="table-header" />
+		<tbody>
+			<if condition="pageIndex == 0">
+				<use content="totals" />
+			</if>
+			<tr class="data" each="var row in Model.GetRowsForPageIndex(pageIndex)">
+				<td class="name">${row.Name}</td>
+				<td class="separator"></td>
+				<td class="description">${row.Description}</td>
+			</tr>
+			<if condition="Model.Rows.Count > 0 && pageIndex == Model.Pages - 1">
+				<tr class="hr">
+					<td colspan="3"></td>
+				</tr>
+				<use content="totals" />
+			</if>
+		</tbody>
+	</table>
+</for>

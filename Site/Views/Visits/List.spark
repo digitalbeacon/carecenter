@@ -1,0 +1,83 @@
+﻿<viewdata model="ListModel" />
+
+<content name="header">${Model.Heading}</content>
+
+<sbMessagePanel if="!ViewContext.IsChildAction" />
+
+<content name="searchPanelFilters" if="!ViewContext.IsChildAction">
+	${Html.DropDownListFor(m => m.LocationId, Model.ListItems[Model.PropertyName(m => m.LocationId)], string.Empty)}
+	${Html.DropDownListFor(m => m.InterviewerId, Model.ListItems[Model.PropertyName(m => m.InterviewerId)], string.Empty)}
+</content>
+
+<content name="searchPanelFilters" if="Model.ListItems.ContainsKey(Model.PropertyName(m => m.Year))">
+	${Html.DropDownListFor(m => m.Year, Model.ListItems[Model.PropertyName(m => m.Year)], string.Empty)}
+</content>
+
+<var panelId="ViewContext.IsChildAction ? 'clientVisitListPanel' : 'visitListPanel'" />
+<var sequencerKey="ViewContext.IsChildAction ? 'clientVisits' : 'visits'" />
+
+<sbListPanel displaySearchPanel="!ViewContext.IsChildAction || Model.ListItems.ContainsKey(Model.PropertyName(m => m.Year))" hideSearchPanelWhenEmpty="ViewContext.IsChildAction" enableNew="Model.ParentId.HasValue && Model.ParentId.Value > 0" enableRemove="Model.CanDelete">
+<%
+grid.Columns(columns =>
+{
+	columns.Bound(x => x.Date)
+		.HeaderHtmlAttributes(new { @class = "name" })
+		.Format("{0:d}");
+	if (Model.ParentId == null)
+	{
+		columns.Bound(x => x.ClientId)
+			.HeaderHtmlAttributes(new { @class = "view icon" })
+			.HtmlAttributes(new { @class = "view icon link" })
+			.Format(GridActionLink(selectAction, "clients", "Common.Select.Label").ToString())
+			.Title(String.Empty)
+			.Encoded(false)
+			.Sortable(false);
+		columns.Bound(x => x.ClientName)
+			.HeaderHtmlAttributes(new { @class = "client-name" })
+			.Sortable(false);
+	}
+	columns.Bound(x => x.LocationName)
+		.HeaderHtmlAttributes(new { @class = "location" });
+	columns.Bound(x => x.InterviewerDisplayName)
+		.HeaderHtmlAttributes(new { @class = "interviewer" });
+})
+.Sortable(sorting =>
+{
+	sorting.OrderBy(sort => sort.Add(x => x.Date).Descending());
+})
+.Render();
+%>
+	<content name="readyScript" if="!ViewContext.IsChildAction">
+		$('#${panelId}').bind('dataBound', function() {
+			$('tbody tr', this).each(function() {
+				var row = this;
+				$('.view a', row)
+					.attr('title', '${Text("Common.ViewEntity.Label", Text("Clients.Singular.Label")).EscapeForJavaScript()}')
+					.click(function() {
+						$.sb.modalBox({ replace: false, ajax: this.href });
+						return false;
+					});
+			});
+		});
+	</content>
+</sbListPanel>
+
+<content name="readyScript">
+	var ${panelId} = $('#${panelId}').data('sbListPanel');
+	$('#LocationId', ${panelId}.element).change(function() { $('#search', ${panelId}.element).click(); });
+	$('#InterviewerId', ${panelId}.element).change(function() { $('#search', ${panelId}.element).click(); });
+</content>
+
+<content name="readyScript" if="ViewContext.IsChildAction">
+	${panelId}.augmentParams = { clientMode: true, ${EntityModel.SequencerProperty}: '${sequencerKey}' };
+</content>
+
+<content name="readyScript" if="ViewContext.IsChildAction && Model.ListItems.ContainsKey(Model.PropertyName(m => m.Year))">
+	var searchText = $('#searchText', ${panelId}.element).hide();
+	var searchBtn = $('#search', ${panelId}.element).hide();
+	$('.clear-search-form', ${panelId}.element).hide()
+	$('#Year', ${panelId}.element).change(function() { 
+		searchText.val(this.value);
+		searchBtn.click();
+	});
+</content>

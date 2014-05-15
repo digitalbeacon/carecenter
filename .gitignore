@@ -1,0 +1,15 @@
+bin
+obj
+*.suo
+*.user
+*.log
+
+/Site/Config/*.config
+/Site/Config/*.xml
+
+/Publish/*
+
+/3rdParty/Bin/*
+/Config/Base/*
+/Database/Base/*
+/Site/Resources/Base/*

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ====================================================================== -->
+<!--                                                                        -->
+<!--                       Copyright (c) 2010-2014                          -->
+<!--                         Digital Beacon, LLC                            -->
+<!--                                                                        -->
+<!-- ====================================================================== -->
+
+<!-- Generated with MyGeneration using the NHibernate Mappings template -->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DigitalBeacon.CareCenter.Model">
+	<class name="DigitalBeacon.CareCenter.Model.VisitEntity" table="`Visit`" lazy="true">
+		<id name="Id" column="`Id`" type="Int64" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<version name="ModificationCounter" column="`ModificationCounter`" type="Int64" />
+		<property name="Date" column="`Date`" type="DateTime" not-null="true" />
+		<many-to-one name="Location" column="`LocationId`" class="DigitalBeacon.CareCenter.Model.LocationEntity, DigitalBeacon.CareCenter.Model" />
+		<property name="ClientId" column="`ClientId`" type="Int64" not-null="true" />
+		<many-to-one name="Interviewer" column="`InterviewerId`" class="DigitalBeacon.CareCenter.Model.InterviewerEntity, DigitalBeacon.CareCenter.Model" />
+	</class>
+</hibernate-mapping>

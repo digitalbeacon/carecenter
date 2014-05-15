@@ -1,0 +1,145 @@
+﻿<viewdata model="ListModel" />
+
+<content name="header">
+	${Model.Heading}
+</content>
+
+<sbMessagePanel />
+
+<content name="searchPanelFilters">
+	${Html.DropDownListFor(m => m.LocationId, Model.ListItems[Model.PropertyName(m => m.LocationId)], string.Empty)}
+	${Html.DropDownListFor(m => m.CommentTypeId, Model.ListItems[Model.PropertyName(m => m.CommentTypeId)], string.Empty)}
+	${Html.DropDownListFor(m => m.Inactive, Model.ListItems[Model.PropertyName(m => m.Inactive)])}
+	<!--${this.CheckBox(m => m.IncludeInactive).LabelAfter(Text("Clients.IncludeInactive.Label"))}-->
+</content>
+
+<var panelId="'clientListPanel'" />
+
+<sbListPanel hideSearchPanelWhenEmpty="false" enableRemove="Model.CanDelete">
+<%
+grid.Columns(columns =>
+{
+	columns.Bound(x => x.Flagged)
+		.Title(String.Empty)
+		.Sortable(false)
+		.HeaderHtmlAttributes(new { @class = "icon" })
+		.Template(x => { Response.Write(x.Flagged ? "<span class=\"follow-up\"><span class=\"text\">*</span></span>" : String.Empty); })
+		.ClientTemplate("<#= Flagged ? \"<span class='follow-up'><span class='text'>*</span></span>\" : \"\" #>");
+	columns.Bound(x => x.HasFlaggedComment)
+		.Title(String.Empty)
+		.Sortable(false)
+		.HeaderHtmlAttributes(new { @class = "icon" })
+		.Template(x => { Response.Write(x.HasFlaggedComment ? "<span class=\"flagged\"><span class=\"text\">*</span></span>" : String.Empty); })
+		.ClientTemplate("<#= HasFlaggedComment ? \"<span class='flagged'><span class='text'>*</span></span>\" : \"\" #>");
+	//columns.Bound(x => x.Today)
+	//	.HeaderHtmlAttributes(new { @class = "check-in" })
+	//	.HtmlAttributes(new { @class = "check-in" })
+	//	.Template(x => { Response.Write("<input type='checkbox' " + (x.Today ? "disabled='disabled' " : String.Empty) + (x.Today ? "checked='checked' " : String.Empty) + " />"); })
+	//	.ClientTemplate("<input type='checkbox' <#= Today ? \"disabled='disabled'\" : \"\" #> <#= Today ? \"checked='checked'\" : \"\" #> />")
+	//	.Sortable(false);
+	columns.Bound(x => x.LastName)
+		.HeaderHtmlAttributes(new { @class = "last-name" });
+	columns.Bound(x => x.FirstName)
+		.HeaderHtmlAttributes(new { @class = "first-name" });
+	columns.Bound(x => x.DateOfBirth)
+		.HeaderHtmlAttributes(new { @class = "date" })
+		.Format("{0:d}");
+	columns.Bound(x => x.Age)
+		.HeaderHtmlAttributes(new { @class = "age" });
+	columns.Bound(x => x.HouseholdCount)
+		.HeaderHtmlAttributes(new { @class = "household-count" });
+	//columns.Bound(x => x.LocationName)
+	//	.HeaderHtmlAttributes(new { @class = "location" });
+	columns.Bound(x => x.LastVisitDate)
+		.HeaderHtmlAttributes(new { @class = "date" })
+		.Format("{0:d}");
+	//columns.Bound(x => x.ThisWeek)
+	//	.HeaderHtmlAttributes(new { @class = "this-week" })
+	//	.HtmlAttributes(new { @class = "this-week" })
+	//	.Template(x => { Response.Write("<input type='checkbox' " + (x.ThisWeek ? "disabled='disabled' " : String.Empty) + (x.ThisWeek ? "checked='checked' " : String.Empty) + " />"); })
+	//	.ClientTemplate("<input type='checkbox' <#= ThisWeek ? \"disabled='disabled'\" : \"\" #> <#= ThisWeek ? \"checked='checked'\" : \"\" #> />")
+	//	.Sortable(false);
+	//columns.Bound(x => x.LastWeek)
+	//	.HeaderHtmlAttributes(new { @class = "last-week" })
+	//	.ClientTemplate("<input type='checkbox' disabled='disabled' <#= LastWeek ? \"checked='checked'\" : \"\" #> />")
+	//	.Sortable(false);
+	columns.Bound(x => x.Inactive)
+		.HeaderHtmlAttributes(new { @class = "inactive hidden" })
+		.HtmlAttributes(new { @class = "inactive hidden" })
+		.ClientTemplate("<input type='checkbox' disabled='disabled' <#= Inactive ? \"checked='checked'\" : \"\" #> />");
+	columns.Bound(x => x.Repeat)
+		.HeaderHtmlAttributes(new { @class = "repeat" })
+		.ClientTemplate("<input type='checkbox' disabled='disabled' <#= Repeat ? \"checked='checked'\" : \"\" #> />");
+	//columns.Bound(x => x.Flagged)
+	//	.HeaderHtmlAttributes(new { @class = "flag" })
+	//	.ClientTemplate("<input type='checkbox' disabled='disabled' <#= Flagged ? \"checked='checked'\" : \"\" #> />");
+})
+.Sortable(sorting =>
+{
+	sorting.OrderBy(sort => sort.Add(x => x.LastVisitDate).Descending());
+})
+.Render();
+%>
+	<content name="readyScript">
+		$('#${panelId}').bind('dataBound', function() {
+			var ${panelId} = $(this).data('sbListPanel');
+			$('tbody .check-in input:enabled', this).click(function(e) {
+				var clientId = $(this).closest('tr').find('.select a').attr('data-id');
+				if (clientId) {
+					$.post($.digitalbeacon.resolveUrl('~/clients/' + clientId + '/checkIn'), null, function(response) {
+						if (response) {
+							if (response.Message) {
+								$.sb.displayError(response.Message);
+							}
+							else {
+								$('#${panelId}').trigger('refresh');
+							}
+						}
+					});
+				}
+				e.stopPropagation();
+			});
+			$('tbody td .follow-up', this).bt('${Text("Clients.Flagged.Tooltip").EscapeForJavaScript()}');
+			$('tbody td .flagged', this).bt('${Text("Clients.FlaggedComment.Tooltip").EscapeForJavaScript()}');
+			if ($('#Inactive', this).val() == 'False') {
+				$('.inactive', this).removeClass('hidden');
+			}
+			else {
+				$('.inactive', this).addClass('hidden');
+			}
+		});
+	</content>
+	<sbActionLink id="'report'" action="'index'" controller="'clientReport'" text="'Clients.Report.Label'" />
+	<!--<sbActionLink id="'detailReport'" action="'index'" controller="'clientReport'" text="'Clients.DetailReport.Label'" />-->
+</sbListPanel>
+
+<form id="reportForm" method="post" target="_blank">
+	<input type="hidden" name="searchText" />
+	<input type="hidden" name="CommentTypeId" />
+	<input type="hidden" name="Inactive" />
+	<input type="hidden" name="Sort" id="sort" />
+	<input type="hidden" name="FromListView" value="true" />
+	<input type="hidden" name="ShowDetails" id="showDetails" />
+</form>
+
+<content name="readyScript">
+	var ${panelId} = $('#${panelId}').data('sbListPanel');
+	${panelId}.deleteConfirmText = '${Text("Clients.DeleteConfirmText")}';
+	$('#LocationId', ${panelId}.element).change(function() { $('#search', ${panelId}.element).click(); });
+	$('#CommentTypeId,#Inactive', ${panelId}.element).change(function() { 
+		$('#search', ${panelId}.element).click(); 
+	});
+	$('#report,#detailReport').click(function() {
+		var reportForm = $('#reportForm');
+		reportForm[0].action = this.href;
+		$('.search-panel form :input').each(function() {
+			if (this.name != 'searchText' || this.value != 'Search') {
+				reportForm.find(':input[name=' + this.name + ']').val(this.value);
+			}
+		});
+		reportForm.find('#sort').val(${panelId}.grid.orderBy);
+		reportForm.find('#showDetails').val(this.id == 'detailReport' ? 'true' : 'false');
+		reportForm[0].submit();
+		return false;
+	});
+</content>

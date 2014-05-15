@@ -1,0 +1,100 @@
+﻿<use master="Basic" />
+<viewdata model="ClientReportInfo" />
+
+<content name="application-head">
+	<link type="text/css" href="${Url.Content("~/resources/reports/common.css")}" rel="stylesheet"/>
+	<link type="text/css" href="${Url.Content("~/resources/reports/client.css")}" rel="stylesheet"/>
+</content>
+
+<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
+<!--<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>-->
+<div class="title">${Text("Reports.Client.Title")}</div>
+<div class="subtitle">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")} ${(Model.MinDate.HasValue && Model.MaxDate.HasValue) ? Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate) : String.Empty}</div>
+
+<default colspan="10" />
+
+<content name="table-header">
+	<thead>
+		<tr>
+			<!--<th class="icon"></th>
+			<th class="icon"></th>-->
+			<th class="last-name">${Text("Common.LastName.Label")}</th>
+			<th class="first-name">${Text("Common.FirstName.Label")}</th>
+			<th class="date-of-birth">${Text("Common.DateOfBirth.Label")}</th>
+			<th class="age">${Text("Common.Age.Label")}</th>
+			<th class="household-count">${Text("Clients.HouseholdCount.Label.Short")}</th>
+			<th class="last-visit">${Text("Clients.LastVisitDate.Label")}</th>
+			<!--<th class="this-week">${Text("Clients.Today.Label")}</th>-->
+			<!--<th class="this-week">${Text("Clients.ThisWeek.Label")}</th>-->
+			<!--<th class="last-week">${Text("Clients.LastWeek.Label")}</th>-->
+			<th class="inactive">${Text("Common.Inactive.Label")}</th>
+			<th class="repeat">${Text("Clients.Repeat.Label")}</th>
+			<th class="flagged">${Text("Clients.Flagged.Label")}</th>
+			<th class="flagged-comment">${Text("Common.Flagged.Label")}</th>		</tr>
+	</thead>
+	<tr class="hr">
+		<td colspan="${colspan}"></td>
+	</tr>
+</content>
+
+<content name="totals">
+	<tr class="total">
+		<td colspan="${colspan}">${Text("Reports.Common.Total.Label")}: ${Model.Rows.Count}</td>
+	</tr>
+	<tr class="hr">
+		<td colspan="${colspan}"></td>
+	</tr>
+</content>
+
+<for each="var page in new int[Model.Pages]">
+	<div class="page-break" if="pageIndex > 0"></div>
+	<table id="clients">
+		<use content="table-header" />
+		<tbody>
+			<!--<if condition="pageIndex == 0">
+				<use content="totals" />
+			</if>-->
+			<for each="var row in Model.GetRowsForPageIndex(pageIndex)">
+				<tr class="data${rowIndex % 2 == 1 ? ' alt' : String.Empty}">
+					<!--<td class="icon"><span class="flagged-icon" if="row.Flagged"></span></td>
+					<td class="icon"><span class="flagged-comment-icon" if="row.HasFlaggedComment"></span></td>-->
+					<td class="last-name">${row.LastName}</td>
+					<td class="first-name">${row.FirstName}</td>
+					<td class="date-of-birth">${Text("Reports.Common.DateFormat", row.DateOfBirth)}</td>
+					<td class="age">${row.Age}</td>
+					<th class="household-count">${row.HouseholdCount}</th>
+					<td class="last-visit-date">${Text("Reports.Common.DateFormat", row.LastVisitDate)}</td>
+					<!--<td class="appointment-day">${row.AppointmentDayText}</td>-->
+					<!--<td class="today">${row.Today ? "\u2713" : String.Empty}</td>-->
+					<!--<td class="this-week">${row.ThisWeek ? "\u2713" : String.Empty}</td>-->
+					<!--<td class="last-week">${row.LastWeek ? "\u2713" : String.Empty}</td>-->
+					<td class="inactive">${row.Inactive ? "\u2713" : String.Empty}</td>
+					<td class="repeat">${row.Repeat ? "\u2713" : String.Empty}</td>
+					<td class="flagged">${row.Flagged ? "\u2713" : String.Empty}</td>
+					<td class="flagged-comment">${row.HasFlaggedComment ? "\u2713" : String.Empty}</td>
+				</tr>
+				<if condition="Model.ShowDetails">
+					<tr class="data${rowIndex % 2 == 1 ? ' alt' : String.Empty}${comment.Flagged ? ' flagged' : String.Empty} details" each="var comment in row.Comments">
+						<!--<td></td>
+						<td></td>-->
+						<td class="date">
+							${Text("Reports.Common.DateFormat", comment.Date)}
+						</td>
+						<td>
+							${comment.CommentType.Name}
+						</td>
+						<td colspan="${colspan - 2}">
+							${comment.Text}
+						</td>
+					</tr>
+				</if>
+			</for>
+			<if condition="Model.Rows.Count > 0 && pageIndex == Model.Pages - 1">
+				<tr class="hr">
+					<td colspan="${colspan}"></td>
+				</tr>
+				<use content="totals" />
+			</if>
+		</tbody>
+	</table>
+</for>

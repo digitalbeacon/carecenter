@@ -1,0 +1,75 @@
+.page-break
+{ 
+	display: block;
+	clear: both;
+	page-break-after: always;
+}
+body
+{
+	font-family: Arial, Helvetica;
+	font-size: 10pt; /* page width is ~72em at 10pt */
+}
+#report-logo-left
+{
+	width: 260px;
+	height: 90px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#report-logo-right
+{
+	width: 185px;
+	height: 57px;
+	position: absolute;
+	right: 0;
+	top: 16px;
+}
+.title,
+.subtitle-location,
+.subtitle-date-range
+{
+	text-align: center;
+	font-weight: bold;
+}
+.title
+{
+	font-size: 14pt;
+	margin-top: 3em;
+}
+.subtitle-date-range
+{
+	margin-bottom: 5em;
+}
+table
+{
+	width: 72em;
+	border-collapse:collapse;
+}
+th
+{
+	vertical-align: bottom;
+	padding: 5px;
+}
+th.separator
+{
+	width: 2em;
+}
+tr.hr td
+{
+	border-bottom: solid black 1px;
+	padding: 0px;
+}
+tr.alt
+{
+	background: #eee;
+}
+td
+{
+	text-align: center;
+	padding: 5px;
+}
+h3
+{
+	font-size: 11pt;
+}

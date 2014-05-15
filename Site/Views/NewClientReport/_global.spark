@@ -1,0 +1,5 @@
+﻿<use namespace="DigitalBeacon.CareCenter.Model" />
+<use namespace="DigitalBeacon.CareCenter.Site.Models" />
+<use namespace="DigitalBeacon.CareCenter.Site.Models.Reports" />
+
+<!--<global module="'reports'" type="string" />-->

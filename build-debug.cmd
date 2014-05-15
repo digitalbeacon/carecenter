@@ -1,0 +1,1 @@
+call build.cmd /debug /skipbase %*

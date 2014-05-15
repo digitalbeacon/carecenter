@@ -1,0 +1,5 @@
+﻿<use namespace="DigitalBeacon.CareCenter.Business" />
+<use namespace="DigitalBeacon.CareCenter.Model" />
+<use namespace="DigitalBeacon.CareCenter.Site.Models.Clients" />
+
+<global module="'clients'" type="string" />

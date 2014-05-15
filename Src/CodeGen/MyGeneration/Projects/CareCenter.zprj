@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="CareCenter" description="New Zeus Project file" defaultSettingsOverride="False">
+  <objects>
+    <obj name="DAL" uid="b7efe657-7323-4ff1-82b8-cbcf3a6e35d7" path="..\..\..\..\Base\CodeGen\MyGeneration\Templates\_Common Input_.zeus">
+      <items>
+        <item name="__dbConnectionString" type="System.String" val="Provider=SQLOLEDB.1;server=localhost;initial catalog=CareCenterDemo;user id=web;password=Password1" />
+        <item name="__dbDriver" type="System.String" val="SQL" />
+        <item name="__dbLanguageMappingFileName" type="System.String" val="..\Settings\Languages.xml" />
+        <item name="__dbTarget" type="System.String" val="SqlClient" />
+        <item name="__dbTargetMappingFileName" type="System.String" val="..\Settings\DbTargets.xml" />
+        <item name="__defaultOutputPath" type="System.String" val="..\..\.." />
+        <item name="__defaultTemplatePath" type="System.String" val="..\..\..\..\Base\CodeGen\MyGeneration\Templates" />
+        <item name="__domainOverride" type="System.Boolean" val="True" />
+        <item name="__language" type="System.String" val="C#" />
+        <item name="__userMetaDataFileName" type="System.String" val="..\Settings\UserMetaData.xml" />
+        <item name="__version" type="System.String" val="1.3.0.3" />
+        <item name="baseAssemblyName" type="System.String" val="DigitalBeacon.CareCenter" />
+        <item name="baseNamespace" type="System.String" val="DigitalBeacon.CareCenter" />
+        <item name="baseOutputPath" type="System.String" val="..\..\.." />
+        <item name="chkGenDaoUnitTests" type="System.Boolean" val="False" />
+        <item name="chkGenDtos" type="System.Boolean" val="True" />
+        <item name="chkGenEnums" type="System.Boolean" val="True" />
+        <item name="chkGenNhMappings" type="System.Boolean" val="True" />
+        <item name="chkGenSpringDaoConfig" type="System.Boolean" val="True" />
+        <item name="database" type="System.String" val="CareCenterDemo" />
+        <item name="dbConnectionString" type="System.Boolean" val="True" />
+        <item name="dbDriver" type="System.String" val="SQL" />
+        <item name="defaultOutputPath" type="System.String" val="..\..\.." />
+        <item name="defaultTemplatePath" type="System.String" val="..\..\..\..\Base\CodeGen\MyGeneration\Templates" />
+        <item name="hiddenField" type="System.String" val="HiddenValue" />
+        <item name="memberPrefix" type="System.String" val="_" />
+        <item name="schemaName" type="System.String" val="" />
+        <item name="selectPath" type="System.String" val="" />
+        <item name="tables" type="System.Collections.ArrayList" val="System.String|H|Client;System.String|H|ClientComment;System.String|H|CommentType;System.String|H|HouseholdMember;System.String|H|Interviewer;System.String|H|Location;System.String|H|Visit;" />
+        <item name="versionColumnName" type="System.String" val="ModificationCounter" />
+        <item name="views" type="System.Collections.ArrayList" val="" />
+      </items>
+    </obj>
+  </objects>
+</project>

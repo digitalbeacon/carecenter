@@ -1,0 +1,41 @@
+﻿<viewdata model="ListModel" />
+
+<content name="header">${Model.Heading}</content>
+
+<sbMessagePanel if="!ViewContext.IsChildAction" />
+
+<var panelId="'householdListPanel'" />
+
+<sbListPanel displaySearchPanel="!Model.ParentId.HasValue" enableRemove="Model.CanDelete">
+<%
+grid.Columns(columns =>
+{
+//	columns.Bound(x => x.FirstName)
+//		.HeaderHtmlAttributes(new { @class = "first-name" });
+//	columns.Bound(x => x.MiddleName)
+//		.HeaderHtmlAttributes(new { @class = "middle-name" });
+//	columns.Bound(x => x.LastName)
+//		.HeaderHtmlAttributes(new { @class = "last-name" });
+	columns.Bound(x => x.Name)
+		.HeaderHtmlAttributes(new { @class = "name" });
+	columns.Bound(x => x.Ssn4)
+		.HeaderHtmlAttributes(new { @class = "last-four-ssn" });
+	columns.Bound(x => x.Age)
+		.HeaderHtmlAttributes(new { @class = "age" });
+})
+.Sortable(sorting =>
+{
+	sorting.OrderBy(sort => sort.Add(x => x.Age).Ascending());
+})
+.Render();
+%>
+	<content name="readyScript" if="ViewContext.IsChildAction">
+		$('#${panelId}').bind('dataBound', function() {
+			var ${panelId} = $(this).data('sbListPanel');
+			if (${panelId}) {
+				$('#HouseholdCount').text(${panelId}.grid.total + 1);
+				$('#clientListPanel').trigger('refresh');
+			}
+		});
+	</content>
+</sbListPanel>

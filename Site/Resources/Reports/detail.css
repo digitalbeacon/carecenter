@@ -1,0 +1,66 @@
+#clients th
+{
+	width: 3em;
+	height: 6.5em;
+}
+#clients th.separator
+{
+	width: 1em;
+}
+#clients th.name
+{
+	text-align: left;
+	width: 18em;
+}
+#clients th.age
+{
+}
+#clients th.race
+{
+}
+#clients th.rotate
+{
+	padding-left: 1em;
+}
+#clients th.rotate span
+{
+	display: block;
+	white-space: nowrap;
+	position: absolute;
+	-moz-transform: rotate(270deg);
+	-moz-transform-origin: left top;
+	-webkit-transform: rotate(270deg);
+	-webkit-transform-origin: left top;
+	-ms-transform: rotate(270deg);
+	-ms-transform-origin: left top;
+	-o-transform: rotate(270deg);
+	-o-transform-origin: left top;
+	transform: rotate(270deg);
+	transform-origin: left top;
+}
+#clients td.name
+{
+	text-align: left;
+}
+#clients td.last-visit
+{
+	text-align: right;
+}
+#clients tr.total td
+{
+	padding-top: 5px;
+	font-weight: bold;
+}
+#householdCountBreakdown th
+{
+	width: 1em;
+}
+#householdCountBreakdown th:first-child,
+#householdCountBreakdown td:first-child
+{
+	text-align: left
+}
+#householdCountBreakdown
+{
+	margin-bottom: 20px;
+}

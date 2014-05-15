@@ -1,0 +1,4 @@
+﻿<use namespace="DigitalBeacon.CareCenter.Model" />
+<use namespace="DigitalBeacon.CareCenter.Site.Models.Interviewers" />
+
+<!--<global module="'interviewers'" type="string" />-->

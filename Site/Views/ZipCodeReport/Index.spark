@@ -1,0 +1,36 @@
+﻿<viewdata model="BaseReportModel" />
+
+<content name="header">${Text("Reports.ZipCode.Header")}</content>
+
+<var panelId="'reportPanel'" />
+
+<sbFormPanel>
+	<sbFormRow property="P(m => m.LocationId)" includeEmptyOption="Model.ListItems[Model.PropertyName(x => x.LocationId)].Count() > 1" />
+	<sbFormRow property="P(m => m.MinDate)" required="true" />
+	<sbFormRow property="P(m => m.MaxDate)" required="true" />
+	<sbFormRow property="P(m => m.Download)" helpText="'Reports.Download.HelpText'" />
+	<sbFormRow>
+		<input type="submit" id="run" value="${Text('Reports.Run.Label')}" data-url="${Url.Action('report')}" />
+	</sbFormRow>
+</sbFormPanel>
+
+<content name="readyScript">
+	var ${panelId} = $('#${panelId}').data('sbFormPanel');
+	${panelId}.formTarget = '_blank';
+	
+	${ValidationRule("MinDate", panelId, "required", true, "Validation.Error.Required", "Reports.MinDate.Label")}
+	${ValidationRule("MaxDate", panelId, "required", true, "Validation.Error.Required", "Reports.MaxDate.Label")}
+	
+	$('#run', ${panelId}.element).click(function(e) { 
+/*	
+		if ($('#Download:checked', ${panelId}.element).length) {
+			${panelId}.formTarget = null;
+		}
+		else {
+			$.sb.modalBox('<h1>Report</h1><iframe class="report" frameborder="0" src="' + ${panelId}.form.action + '/create?' + $(${panelId}.form).serialize() + '"/>');
+			return false;
+		}
+*/		
+		${panelId}.resetSubmitFlag(); 
+	});
+</content>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ====================================================================== -->
+<!--                                                                        -->
+<!--                       Copyright (c) 2010-2014                          -->
+<!--                         Digital Beacon, LLC                            -->
+<!--                                                                        -->
+<!-- ====================================================================== -->
+
+<!-- Generated with MyGeneration using the NHibernate Mappings template -->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DigitalBeacon.CareCenter.Model">
+	<joined-subclass name="DigitalBeacon.CareCenter.Model.ClientEntity" extends="DigitalBeacon.SiteBase.Model.ContactEntity, DigitalBeacon.SiteBase.Model" table="`Client`" lazy="true">
+		<key column="ContactId" />
+		<property name="UniqueId" column="`UniqueId`" type="String" length="100" />
+		<property name="Flagged" column="`Flagged`" type="Boolean" not-null="true" />
+		<many-to-one name="Location" column="`LocationId`" class="DigitalBeacon.CareCenter.Model.LocationEntity, DigitalBeacon.CareCenter.Model" />
+		<property name="LastVisitDate" column="`LastVisitDate`" type="DateTime" />
+		<property name="AgeBasis" column="`AgeBasis`" type="DateTime" />
+		<property name="HouseholdCount" column="`HouseholdCount`" type="Int32" />
+		<property name="Income" column="`Income`" type="Decimal" />
+		<property name="Bibles" column="`Bibles`" type="Int32" />
+		<property name="Member" column="`Member`" type="Boolean" not-null="true" />
+		<property name="FoodStamps" column="`FoodStamps`" type="Boolean" not-null="true" />
+		<property name="Tanf" column="`Tanf`" type="Boolean" not-null="true" />
+		<property name="Ssi" column="`Ssi`" type="Boolean" not-null="true" />
+		<property name="Unemployed" column="`Unemployed`" type="Boolean" not-null="true" />
+		<property name="Elderly" column="`Elderly`" type="Boolean" not-null="true" />
+		<property name="SelfDeclared" column="`SelfDeclared`" type="Boolean" not-null="true" />
+		<property name="Repeat" column="`Repeat`" type="Boolean" not-null="true" />
+		<property name="ClientChoice" column="`ClientChoice`" type="Boolean" not-null="true" />
+		<bag name="HouseholdMembers" table="`HouseholdMember`" lazy="true" cascade="all-delete-orphan" inverse="true">
+			<key column="`ClientId`" />
+			<one-to-many class="DigitalBeacon.CareCenter.Model.HouseholdMemberEntity, DigitalBeacon.CareCenter.Model" />
+		</bag>
+		<bag name="Visits" table="`Visit`" lazy="true" cascade="none" inverse="true">
+			<key column="`ClientId`" />
+			<one-to-many class="DigitalBeacon.CareCenter.Model.VisitEntity, DigitalBeacon.CareCenter.Model" />
+		</bag>
+		<bag name="Comments" table="`ClientComment`" lazy="true" cascade="none" inverse="true">
+			<key column="`ClientId`" />
+			<one-to-many class="DigitalBeacon.CareCenter.Model.ClientCommentEntity, DigitalBeacon.CareCenter.Model" />
+		</bag>
+	</joined-subclass>
+</hibernate-mapping>

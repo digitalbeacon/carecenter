@@ -1,0 +1,20 @@
+﻿<viewdata model="EditModel" />
+
+<content name="header">${Model.Heading}</content>
+
+<sbFormPanel panelId="'interviewerEditPanel'" panelClass="'lookup-edit-panel'" enableBulkCreate="Model.Id == 0 && !Model.CreateForVisit">
+	${Html.HiddenFor(m => m.CreateForVisit)}
+	<sbFormRow property="P(m => m.FirstName)" focus="true" />
+	<sbFormRow property="P(m => m.LastName)" />
+	<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.Email)" />
+	<sbFormRow property="P(m => m.Inactive)" inputType="checkBox" if="!Model.CreateForVisit" />
+	<sbFormRow inputType="submit" />
+</sbFormPanel>
+
+<content name="readyScript" if="Model.CreateForVisit">
+	var interviewerEditPanel = $('#interviewerEditPanel').data('sbFormPanel');
+	interviewerEditPanel.updateContent = function(response, action) {
+		$('#InterviewerId').append($('<option/>').attr("value", response.Id).text(response.DisplayName)).val(response.Id);
+		$.sb.closeModalBox();
+	};
+</content>

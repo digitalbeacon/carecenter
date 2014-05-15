@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22BF456B-CFB6-4356-B7D8-4A2CDA4A92BD}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DigitalBeacon.CareCenter.Site</RootNamespace>
+    <AssemblyName>DigitalBeacon.CareCenter.Site</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\Base\3rdParty\Nuget\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\Base\3rdParty\Nuget\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.1.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\Base\3rdParty\Nuget\Common.Logging.Log4Net.2.0.1\lib\net20\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon, Version=4.0.0.159, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.Business, Version=4.0.0.160, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.Model, Version=4.0.0.159, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.SiteBase">
+      <HintPath>..\Base\Bin\DigitalBeacon.SiteBase.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.SiteBase.Business, Version=4.0.0.161, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.SiteBase.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.SiteBase.Model, Version=4.0.0.160, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.SiteBase.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.SiteBase.Web">
+      <HintPath>..\Base\Bin\DigitalBeacon.SiteBase.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.SqlUpdate, Version=4.0.0.159, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.SqlUpdate.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.Util, Version=4.0.0.159, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalBeacon.Web, Version=4.0.0.160, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\Bin\DigitalBeacon.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\Base\3rdParty\Nuget\FluentValidation.5.0.0.1\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc">
+      <HintPath>..\Base\3rdParty\Nuget\FluentValidation.MVC4.5.0.0.1\lib\Net40\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Base\3rdParty\Nuget\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Base\3rdParty\Nuget\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\Base\3rdParty\Nuget\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.FluentHtml, Version=3.0.0.99, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\StudioDonder.MvcContrib.Mvc4.FluentHtml.3.0.0.99\lib\MvcContrib.FluentHtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Base\3rdParty\Nuget\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Recaptcha.Web, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\RecaptchaNet.1.3\lib\net45\Recaptcha.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SecuritySwitch">
+      <HintPath>..\Base\3rdParty\Nuget\SecuritySwitch.4.2.0.0\lib\SecuritySwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark">
+      <HintPath>..\Base\3rdParty\Nuget\Spark.1.7.5.3\lib\NET45\Spark.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark.Web.Mvc">
+      <HintPath>..\Base\3rdParty\Nuget\Spark.Web.Mvc4.1.7.5.3\lib\NET45\Spark.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Spring.Aop.1.3.2\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Spring.Core.1.3.2\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Spring.Data.1.3.2\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate32, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Spring.Data.NHibernate32.1.3.2\lib\net40\Spring.Data.NHibernate32.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.WebApi.Core.5.1.1\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.WebApi.WebHost.5.1.1\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.WebApi.Client.5.1.1\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.Mvc.5.1.1\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.Razor.3.1.1\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="Telerik.Web.Mvc, Version=2011.3.1115.340, Culture=neutral, PublicKeyToken=29ac1a93ec063d92, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Base\3rdParty\Nuget\TelerikMvcExtensions.2011.3.1115\lib\net40\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\Base\3rdParty\Nuget\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Src\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Controllers\ClientCommentsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CommentTypesController.cs" />
+    <Compile Include="Controllers\HouseholdController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\Reports\BaseReportController.cs" />
+    <Compile Include="Controllers\InterviewersController.cs" />
+    <Compile Include="Controllers\Reports\ClientReportController.cs" />
+    <Compile Include="Controllers\Reports\DetailReportController.cs" />
+    <Compile Include="Controllers\Reports\FoodNetworkReportController.cs" />
+    <Compile Include="Controllers\Reports\NewClientReportController.cs" />
+    <Compile Include="Controllers\Reports\ZipCodeReportController.cs" />
+    <Compile Include="Models\CommentTypes\EditModel.cs" />
+    <Compile Include="Models\CommentTypes\ListItem.cs" />
+    <Compile Include="Models\Household\EditModel.cs" />
+    <Compile Include="Models\Household\ListItem.cs" />
+    <Compile Include="Models\Household\ListModel.cs" />
+    <Compile Include="Models\Locations\ListItem.cs" />
+    <Compile Include="Models\Reports\BaseReportModel.cs" />
+    <Compile Include="Models\Reports\ClientReportInfo.cs" />
+    <Compile Include="Models\Reports\CountInfo.cs" />
+    <Compile Include="Models\Reports\DetailReportInfo.cs" />
+    <Compile Include="Models\Reports\FoodNetworkReportInfo.cs" />
+    <Compile Include="Models\Reports\NewClientReportInfo.cs" />
+    <Compile Include="Models\Reports\RowItem.cs" />
+    <Compile Include="Models\Reports\ZipCodeReportInfo.cs" />
+    <Compile Include="Models\Visits\ListModel.cs" />
+    <Compile Include="Models\Interviewers\EditModel.cs" />
+    <Compile Include="Models\Interviewers\ListItem.cs" />
+    <Compile Include="SiteConstants.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\VisitsController.cs" />
+    <Compile Include="Models\Clients\CreateModel.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Clients\EditModel.cs" />
+    <Compile Include="Models\Clients\ListItem.cs" />
+    <Compile Include="Models\Clients\ListModel.cs" />
+    <Compile Include="Models\Visits\EditModel.cs" />
+    <Compile Include="Models\Visits\ListItem.cs" />
+    <Compile Include="Models\Locations\EditModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Clients\styles.css" />
+    <Content Include="Resources\Clients\styles.min.css" />
+    <Content Include="Resources\Images\icon-info-gray-bg.jpg" />
+    <Content Include="Resources\Images\icon-info-white-bg.jpg" />
+    <Content Include="Resources\Images\no-photo.gif" />
+    <Content Include="Resources\Images\report-logo-left.png" />
+    <Content Include="Resources\Reports\common.css" />
+    <Content Include="Resources\Reports\common.min.css" />
+    <Content Include="Resources\Reports\client.css" />
+    <Content Include="Resources\Reports\client.min.css" />
+    <Content Include="Resources\Reports\detail.css" />
+    <Content Include="Resources\Reports\detail.min.css" />
+    <Content Include="Resources\Reports\food-network.css" />
+    <Content Include="Resources\Reports\food-network.min.css" />
+    <Content Include="Resources\Reports\new-client.css" />
+    <Content Include="Resources\Reports\new-client.min.css" />
+    <Content Include="Resources\Reports\zip-code.css" />
+    <Content Include="Resources\Reports\zip-code.min.css" />
+    <Content Include="Resources\Scripts\demo.js" />
+    <Content Include="Resources\Scripts\DigitalBeacon.CareCenter.Scripts.min.js" />
+    <Content Include="Resources\Scripts\DigitalBeacon.CareCenter.Scripts.js" />
+    <EmbeddedResource Include="Views\ClientReport\Index.spark" />
+    <EmbeddedResource Include="Views\ClientReport\Report.spark" />
+    <EmbeddedResource Include="Views\ClientReport\_global.spark" />
+    <EmbeddedResource Include="Views\DetailReport\Index.spark" />
+    <EmbeddedResource Include="Views\DetailReport\Report.spark" />
+    <EmbeddedResource Include="Views\DetailReport\_global.spark" />
+    <EmbeddedResource Include="Views\FoodNetworkReport\Index.spark" />
+    <EmbeddedResource Include="Views\FoodNetworkReport\Report.spark" />
+    <EmbeddedResource Include="Views\FoodNetworkReport\_global.spark" />
+    <EmbeddedResource Include="Views\Household\Edit.spark" />
+    <EmbeddedResource Include="Views\Household\List.spark" />
+    <EmbeddedResource Include="Views\Household\_global.spark" />
+    <EmbeddedResource Include="Views\NewClientReport\Index.spark" />
+    <EmbeddedResource Include="Views\NewClientReport\Report.spark" />
+    <EmbeddedResource Include="Views\NewClientReport\_global.spark" />
+    <EmbeddedResource Include="Views\ZipCodeReport\Index.spark" />
+    <EmbeddedResource Include="Views\ZipCodeReport\Report.spark" />
+    <EmbeddedResource Include="Views\ZipCodeReport\_global.spark" />
+    <None Include="packages.config" />
+    <None Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Site.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Global.asax" />
+    <Content Include="Resources\Css\custom.css" />
+    <Content Include="Resources\Css\custom.min.css" />
+    <Content Include="Resources\Images\background.gif" />
+    <Content Include="Resources\Images\header.jpg" />
+    <EmbeddedResource Include="Views\Clients\Edit.spark" />
+    <EmbeddedResource Include="Views\Clients\List.spark" />
+    <EmbeddedResource Include="Views\Clients\New.spark">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Clients\_global.spark" />
+    <EmbeddedResource Include="Views\Visits\Edit.spark">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Visits\List.spark" />
+    <EmbeddedResource Include="Views\Visits\_global.spark" />
+    <EmbeddedResource Include="Views\Locations\Edit.spark" />
+    <EmbeddedResource Include="Views\Locations\List.spark" />
+    <EmbeddedResource Include="Views\Locations\_global.spark" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Src\Business\DigitalBeacon.CareCenter.Business.csproj">
+      <Project>{B308F53B-015E-4BC2-BA5A-058E5077CF70}</Project>
+      <Name>DigitalBeacon.CareCenter.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Src\Data\DigitalBeacon.CareCenter.Data.csproj">
+      <Project>{CAA1C363-C3DE-4E3F-BBC5-67AB2BFC49DB}</Project>
+      <Name>DigitalBeacon.CareCenter.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Src\Model\DigitalBeacon.CareCenter.Model.csproj">
+      <Project>{250A8318-43E1-4A25-9297-696E921685B0}</Project>
+      <Name>DigitalBeacon.CareCenter.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Src\SqlUpdate\DigitalBeacon.CareCenter.SqlUpdate.csproj">
+      <Project>{042F7A1F-F9FE-4B7C-909D-23C8501AB0A9}</Project>
+      <Name>DigitalBeacon.CareCenter.SqlUpdate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="Resources\Base\" />
+    <Folder Include="Views\Layouts\" />
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CommentTypes\Edit.spark" />
+    <EmbeddedResource Include="Views\CommentTypes\List.spark" />
+    <EmbeddedResource Include="Views\CommentTypes\_global.spark" />
+    <EmbeddedResource Include="Views\Interviewers\Edit.spark" />
+    <EmbeddedResource Include="Views\Interviewers\List.spark" />
+    <EmbeddedResource Include="Views\Interviewers\_global.spark" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(ProjectDir)..\Base\3rdParty\MSBuild\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- Reference the YUI CompressorTask -->
+  <UsingTask TaskName="JavaScriptCompressorTask" AssemblyFile="$(ProjectDir)..\Base\3rdParty\Nuget\YUICompressor.NET.MSBuild.2.4.0.0\lib\NET20\Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+  <UsingTask TaskName="CssCompressorTask" AssemblyFile="$(ProjectDir)..\Base\3rdParty\Nuget\YUICompressor.NET.MSBuild.2.4.0.0\lib\NET20\Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+  <Target Name="CompressWebAssets">
+    <Message Importance="high" Text="Compressing JavaScript and CSS files..." />
+    <!-- Minify the JavaScript files -->
+    <ItemGroup>
+      <JavaScriptFilesToSkip Include="Resources\**\*.min.js" />
+      <JavaScriptFilesToSkip Include="Resources\Base\**\*.js" />
+      <JavaScriptFilesToMinify Include="Resources\**\*.js" Exclude="@(JavaScriptFilesToSkip)" />
+    </ItemGroup>
+    <JavaScriptCompressorTask SourceFiles="%(JavaScriptFilesToMinify.Identity)" OutputFile="Resources\%(JavaScriptFilesToMinify.RecursiveDir)%(JavaScriptFilesToMinify.Filename).min.js" EncodingType="UTF8" IsEvalIgnored="true" LineBreakPosition="-1" PreserveAllSemicolons="false" DisableOptimizations="false" ObfuscateJavaScript="true" />
+    <!-- Minify the CSS files -->
+    <ItemGroup>
+      <CssFilesToSkip Include="Resources\**\*.min.css" />
+      <CssFilesToSkip Include="Resources\Base\**\*.css" />
+      <CssFilesToMinify Include="Resources\**\*.css" Exclude="@(CssFilesToSkip)" />
+    </ItemGroup>
+    <CssCompressorTask SourceFiles="%(CssFilesToMinify.Identity)" OutputFile="Resources\%(CssFilesToMinify.RecursiveDir)%(CssFilesToMinify.Filename).min.css" />
+  </Target>
+  <Target Name="AfterCompile">
+    <CallTarget Targets="CompressWebAssets" Condition="'$(Configuration)' == 'Release' Or $(Configuration) == 'Release MVC2 NET35'" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3038</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3038/carecenterdemo/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>if exist ..\Config\*.config del /q ..\Config\*.config
+copy /y ..\..\Config\Base\*.config ..\Config
+copy /y ..\..\Config\*.config ..\Config
+if exist ..\..\Config\Test\*.config copy /y ..\..\Config\Test\*.config ..\Config
+if $(ConfigurationName)==Debug if exist ..\..\Config\Dev\*.config copy /y ..\..\Config\Dev\*.config ..\Config
+
+echo touching web.config to trigger app pool recycle
+pushd .
+cd ..
+copy /b web.config +,,
+popd</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

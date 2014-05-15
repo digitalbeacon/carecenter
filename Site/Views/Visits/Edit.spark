@@ -1,0 +1,30 @@
+﻿<viewdata model="EditModel" />
+
+<content name="header">${Model.Heading}</content>
+
+<var panelId="Request['ClientMode'] == 'true' ? 'clientVisitEditPanel' : 'visitEditPanel'" />
+
+<sbFormPanel panelClass="'lookup-edit-panel visitEditPanel'" enableDelete="!Model.IsNew && Model.CanDelete">
+	${Html.HiddenFor(m => m.ClientId)}
+	<sbFormRow property="'Date'" />
+	<sbFormRow property="'LocationId'" includeEmptyOption="false" />
+	<sbFormRow property="'InterviewerId'" enableRenderContent="true">
+		<img id="newVolunteer" src="~/resources/base/images/icon-plus.png" title="${Text("Common.NewEntity.Label", Text("Volunteers.Singular.Label"))}" />
+	</sbFormRow>
+	<sbFormRow inputType="submit" />
+</sbFormPanel>
+
+<content name="readyScript">
+	var ${panelId} = $('#${panelId}').data('sbFormPanel');
+	var interviewer = $('#InterviewerId', ${panelId}.element);
+	var newVolunteer = $('#newVolunteer', ${panelId}.element);
+	newVolunteer.click(function() {
+		$.sb.modalBox({
+			replace: false,
+			ajaxPost: $.digitalbeacon.resolveUrl('~/interviewers/new'),
+			data: {
+				createForVisit: true
+			}
+		});
+	});
+</content>

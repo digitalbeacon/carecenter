@@ -1,0 +1,32 @@
+﻿<viewdata model="EditModel" />
+
+<content name="header">${Model.Heading}</content>
+
+<sbFormPanel panelId="'householdEditPanel'" panelClass="'lookup-edit-panel'" enableDelete="!Model.IsNew && Model.CanDelete">
+	${Html.HiddenFor(m => m.ClientId)}
+	<sbFormRow property="P(m => m.HouseholdFirstName)" />
+	<sbFormRow property="P(m => m.HouseholdLastName)" />
+	<sbFormRow property="P(m => m.HouseholdMiddleName)" />
+	<sbFormRow property="P(m => m.HouseholdLastFourSsn)" mask="'9999'" helpText="'Clients.LastFourSsn.HelpText'" if="!Model.IsNew" />
+	<sbFormRow property="P(m => m.HouseholdSsn)" mask="WebConstants.SsnMask" label="'Common.Ssn.Label.Short'" />
+	<sbFormRow property="P(m => m.HouseholdDateOfBirth)" />
+	<sbFormRow property="P(m => m.HouseholdAge)" inputType="textBox" maxLength="3" />
+	<sbFormRow inputType="submit" />
+</sbFormPanel>
+
+<content name="readyScript">
+	var householdEditPanel = $('#householdEditPanel').data('sbFormPanel');
+	var householdDob = $('#HouseholdDateOfBirth', householdEditPanel.element);
+	var householdAge = $('#HouseholdAge', householdEditPanel.element);
+	householdDob.change(function() {
+		if (householdDob.data('tDatePicker').value()) {
+			//alert(householdDob.find('input').val());
+			householdAge
+				.val(DigitalBeacon.CareCenter.Utils.age(householdDob.data('tDatePicker').value()))
+				.attr('readonly', 'readonly');
+		}
+		else {
+			householdAge.removeAttr('readonly');
+		}
+	}).change();
+</content>

@@ -1,0 +1,19 @@
+﻿<viewdata model="ListModel<ListItem>" />
+
+<content name="header">${Model.Heading}</content>
+
+<sbMessagePanel />
+
+<sbListPanel panelId="'locationListPanel'">
+<%
+grid.Columns(columns =>
+{
+  columns.Bound(x => x.Name)
+	.HeaderHtmlAttributes(new { @class = "name" });
+  columns.Bound(x => x.Inactive)
+	.HeaderHtmlAttributes(new { @class = "inactive" })
+	.ClientTemplate("<input type='checkbox' disabled='disabled' <#= Inactive ? \"checked='checked'\" : \"\" #> />");
+})
+.Render();
+%>
+</sbListPanel>

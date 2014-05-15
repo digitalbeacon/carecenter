@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ====================================================================== -->
+<!--                                                                        -->
+<!--                       Copyright (c) 2010-2014                          -->
+<!--                         Digital Beacon, LLC                            -->
+<!--                                                                        -->
+<!-- ====================================================================== -->
+
+<!-- Generated with MyGeneration using the NHibernate Mappings template -->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DigitalBeacon.CareCenter.Model">
+	<class name="DigitalBeacon.CareCenter.Model.LocationEntity" table="`Location`" lazy="true">
+		<id name="Id" column="`Id`" type="Int64" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<version name="ModificationCounter" column="`ModificationCounter`" type="Int64" />
+		<property name="Name" column="`Name`" type="String" not-null="true" length="50" />
+		<property name="DisplayOrder" column="`DisplayOrder`" type="Int32" not-null="true" />
+		<property name="County" column="`County`" type="String" length="50" />
+		<property name="AgencyName" column="`AgencyName`" type="String" length="50" />
+		<property name="AgencyCode" column="`AgencyCode`" type="String" length="50" />
+		<property name="ContactName" column="`ContactName`" type="String" length="100" />
+		<property name="AlternateContactName" column="`AlternateContactName`" type="String" length="100" />
+		<many-to-one name="Address" column="`AddressId`" class="DigitalBeacon.SiteBase.Model.AddressEntity, DigitalBeacon.SiteBase.Model" cascade="all" />
+	</class>
+</hibernate-mapping>

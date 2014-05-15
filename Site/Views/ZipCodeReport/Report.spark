@@ -1,0 +1,72 @@
+﻿<use master="Basic" />
+<viewdata model="ZipCodeReportInfo" />
+
+<content name="application-head">
+	<link type="text/css" href="${Url.Content("~/resources/reports/common.css")}" rel="stylesheet"/>
+	<link type="text/css" href="${Url.Content("~/resources/reports/zip-code.css")}" rel="stylesheet"/>
+</content>
+
+<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>
+<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
+<div class="title">${Text("Reports.ZipCode.Title")}</div>
+<div class="subtitle-location">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")}</div>
+<div class="subtitle-date-range">${Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate)}</div>
+
+<content name="table-header">
+	<thead>
+		<tr>
+			<th class="description">${Text("Reports.ZipCode.Description.Label")}</th>
+			<th class="separator"></th>
+			<th class="family">!{Text("Reports.ZipCode.FamilyTotal.Label")}</th>
+			<th class="total">!{Text("Reports.ZipCode.PeopleTotal.Label")}</th>
+			<th class="separator"></th>
+			<th class="new-family">!{Text("Reports.ZipCode.NewFamilyTotal.Label")}</th>
+			<th class="new-total">!{Text("Reports.ZipCode.NewPeopleTotal.Label")}</th>
+		</tr>
+	</thead>
+	<tr class="hr">
+		<td colspan="7"></td>
+	</tr>
+</content>
+
+<content name="totals">
+	<tr class="total">
+		<td class="description">${Text("Reports.ZipCode.Total.Label")}</td>
+		<td class="separator"></td>
+		<td class="family">${Model.Totals.Families}</td>
+		<td class="total">${Model.Totals.Total}</td>
+		<td class="separator"></td>
+		<td class="new-family">${Model.Totals.NewFamilies}</td>
+		<td class="new-total">${Model.Totals.NewTotal}</td>
+	</tr>
+	<tr class="hr">
+		<td colspan="7"></td>
+	</tr>
+</content>
+
+<for each="var page in new int[Model.Pages]">
+	<div class="page-break" if="pageIndex > 0"></div>
+	<table id="zipCodes">
+		<use content="table-header" />
+		<tbody>
+			<if condition="pageIndex == 0">
+				<use content="totals" />
+			</if>
+			<tr class="data" each="var row in Model.GetRowsForPageIndex(pageIndex)">
+				<td class="description">${row.Description}</td>
+				<td class="separator"></td>
+				<td class="family">${row.Families}</td>
+				<td class="total">${row.Total}</td>
+				<td class="separator"></td>
+				<td class="new-family">${row.NewFamilies}</td>
+				<td class="new-total">${row.NewTotal}</td>
+			</tr>
+			<if condition="Model.Rows.Count > 0 && pageIndex == Model.Pages - 1">
+				<tr class="hr">
+					<td colspan="7"></td>
+				</tr>
+				<use content="totals" />
+			</if>
+		</tbody>
+	</table>
+</for>

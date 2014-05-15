@@ -1,0 +1,113 @@
+body
+{
+	font-family: Arial, Helvetica;
+	font-size: 12pt; /* page width is ~59em at 12pt */
+}
+.title,
+.subtitle
+{
+	text-align: center;
+	font-weight: bold;
+}
+.title
+{
+	margin-top: 3em;
+}
+.subtitle
+{
+	margin-bottom: 5em;
+}
+.heading
+{
+	text-decoration: underline;
+	margin-bottom: 1em;
+}
+.item
+{
+	width: 25em;
+}
+.label
+{
+	display: inline-block;
+	float: left;
+}
+.value
+{
+	display: block;
+	text-align: center;
+	padding-bottom: 1px;
+	border-bottom: solid black 1px;
+	margin-bottom: 1em;
+	margin-left: 10em;
+}
+.place-holder
+{
+	margin-bottom: 1em;
+}
+.clear
+{
+	clear: both;
+	height: 3em;
+}
+.separator
+{
+	border-top: solid black 1px;
+	margin: 2em 0;
+}
+.page-break
+{ 
+	display: block;
+	clear: both;
+	page-break-after: always;
+}
+.col1
+{
+	float: left;
+}
+.col2
+{
+	margin-left: 30em;
+}
+#contact .value
+{
+	margin-left: 6em;
+}
+#agency .value
+{
+	margin-left: 8.5em;
+}
+.ageBreakdown .value
+{
+	margin-left: 5em;
+}
+#povertyLevel .value
+{
+	margin-left: 14em;
+}
+#unableToServe .value
+{
+	margin-left: 14.5em;
+}
+#comments .value
+{
+	margin-left: 7em;
+}
+.signature-padding-0
+{
+}
+.signature-padding-1
+{
+	height: 37em;
+}
+.signature-padding-2
+{
+	height: 15.5em;
+}
+#signature .item
+{
+	width: 37em;
+}
+#signature .value
+{
+	margin-left: 17em;
+}

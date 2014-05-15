@@ -1,0 +1,4 @@
+﻿<use namespace="DigitalBeacon.CareCenter.Model" />
+<use namespace="DigitalBeacon.CareCenter.Site.Models.Household" />
+
+<!--<global module="'household'" type="string" />-->

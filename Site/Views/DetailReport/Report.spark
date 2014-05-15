@@ -1,0 +1,169 @@
+﻿<use master="Basic" />
+<viewdata model="DetailReportInfo" />
+
+<content name="application-head">
+	<link type="text/css" href="${Url.Content("~/resources/reports/common.css")}" rel="stylesheet"/>
+	<link type="text/css" href="${Url.Content("~/resources/reports/detail.css")}" rel="stylesheet"/>
+</content>
+
+<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>
+<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
+<div class="title">${Text("Reports.Detail.Title")}</div>
+<div class="subtitle-location">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")}</div>
+<div class="subtitle-date-range">${Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate)}</div>
+
+<table id="householdCountBreakdown">
+	<thead>
+		<tr>
+			<th>${Text("Reports.Detail.HouseholdCounts.Label")}</th>
+			<th each="var x in new int[Model.MaxHouseholdCount]">${xIndex + 1}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="hr">
+			<td colspan="${Model.MaxHouseholdCount+1}"></td>
+		</tr>
+		<tr>
+			<td>${Text("Reports.Detail.FamilyTotal.Label")}</td>
+			<td each="var x in new int[Model.MaxHouseholdCount]">${Model.HouseholdCounts.ContainsKey(xIndex + 1) ? Model.HouseholdCounts[xIndex + 1] : 0}</td>
+		</tr>
+		<tr class="hr">
+			<td colspan="${Model.MaxHouseholdCount+1}"></td>
+		</tr>
+	</tbody>
+</table>
+
+<content name="table-header">
+	<thead>
+		<tr>
+			<th class="name">${Text("Reports.Detail.Name.Label")}</th>
+			<th class="separator"></th>
+			<th class="last-visit">${Text("Reports.Detail.LastVisitDate.Label")}</th>
+			<th class="race">!{Text("Reports.Detail.Race.Label")}</th>
+			<th class="household-count">!{Text("Reports.Detail.HouseholdCount.Label")}</th>
+			<th class="separator"></th>
+			<th class="age">!{Text("Reports.Detail.Age0To5.Label")}</th>
+			<th class="age">!{Text("Reports.Detail.Age6To18.Label")}</th>
+			<th class="age">!{Text("Reports.Detail.Age19To40.Label")}</th>
+			<th class="age">!{Text("Reports.Detail.Age41To60.Label")}</th>
+			<th class="age">!{Text("Reports.Detail.AgeOver60.Label")}</th>
+			<th class="separator"></th>
+			<th class="rotate"><span>${Text("Reports.Detail.RaceWhite.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.RaceBlack.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.RaceHispanic.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.RaceAsian.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.RaceIndian.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.RaceOther.Label")}</span></th>
+			<th class="separator"></th>
+			<th class="rotate"><span>${Text("Reports.Detail.Visits.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.Member.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.Repeat.Label")}</span></th>
+			<th class="rotate"><span>${Text("Reports.Detail.ClientChoice.Label")}</span></th>
+		</tr>
+	</thead>
+	<tr class="hr">
+		<td colspan="24"></td>
+	</tr>
+</content>
+
+<content name="totals">
+	<tr class="total">
+		<td class="name">${Text("Reports.Detail.FamilyTotal.Label")}</td>
+		<td class="separator">${Model.Totals.Families}</td>
+		<td class="last-visit"></td>
+		<td class="race"></td>
+		<td class="household-count"></td>
+		<td class="separator"></td>
+		<td class="age"></td>
+		<td class="age"></td>
+		<td class="age"></td>
+		<td class="age"></td>
+		<td class="age"></td>
+		<td class="separator"></td>
+		<td class="race">${Model.FamilyData.RaceWhite}</td>
+		<td class="race">${Model.FamilyData.RaceBlack}</td>
+		<td class="race">${Model.FamilyData.RaceHispanic}</td>
+		<td class="race">${Model.FamilyData.RaceAsian}</td>
+		<td class="race">${Model.FamilyData.RaceIndian}</td>
+		<td class="race">${Model.FamilyData.RaceOther}</td>
+		<td class="separator"></td>
+		<td class="visits">${Model.Totals.Visits}</td>
+		<td class="member">${Model.Totals.Member}</td>
+		<td class="repeat">${Model.Totals.Repeat}</td>
+		<td class="client-choice">${Model.Totals.ClientChoice}</td>
+	</tr>
+	<tr class="hr">
+		<td colspan="24"></td>
+	</tr>
+	<tr class="total">
+		<td class="name">${Text("Reports.Detail.PeopleTotal.Label")}</td>
+		<td class="separator">${Model.Totals.Total}</td>
+		<td class="last-visit"></td>
+		<td class="race"></td>
+		<td class="household-count"></td>
+		<td class="separator"></td>
+		<td class="age">${Model.Totals.Age0To5}</td>
+		<td class="age">${Model.Totals.Age6To18}</td>
+		<td class="age">${Model.Totals.Age19To40}</td>
+		<td class="age">${Model.Totals.Age41To60}</td>
+		<td class="age">${Model.Totals.AgeOver60}</td>
+		<td class="separator"></td>
+		<td class="race">${Model.Totals.RaceWhite}</td>
+		<td class="race">${Model.Totals.RaceBlack}</td>
+		<td class="race">${Model.Totals.RaceHispanic}</td>
+		<td class="race">${Model.Totals.RaceAsian}</td>
+		<td class="race">${Model.Totals.RaceIndian}</td>
+		<td class="race">${Model.Totals.RaceOther}</td>
+		<td class="separator"></td>
+		<td class="visits"></td>
+		<td class="bibles"></td>
+		<td class="member"></td>
+		<td class="repeat"></td>
+		<td class="client-choice"></td>
+	</tr>
+	<tr class="hr">
+		<td colspan="24"></td>
+	</tr>
+</content>
+
+<for each="var page in new int[Model.Pages]">
+	<div class="page-break" if="pageIndex > 0"></div>
+	<table id="clients">
+		<use content="table-header" />
+		<tbody>
+			<if condition="pageIndex == 0">
+				<use content="totals" />
+			</if>
+			<tr class="data" each="var row in Model.GetRowsForPageIndex(pageIndex)">
+				<td class="name" colspan="2">${row.Name}</td>
+				<td class="last-visit">${Text("Reports.Detail.LastVisitDate.Format", row.LastVisitDate)}</td>
+				<td class="race">${row.RaceCode}</td>
+				<td class="household-count">${row.HouseholdCount}</td>
+				<td class="separator"></td>
+				<td class="age">${row.Age0To5}</td>
+				<td class="age">${row.Age6To18}</td>
+				<td class="age">${row.Age19To40}</td>
+				<td class="age">${row.Age41To60}</td>
+				<td class="age">${row.AgeOver60}</td>
+				<td class="separator"></td>
+				<td class="race">${row.RaceWhite}</td>
+				<td class="race">${row.RaceBlack}</td>
+				<td class="race">${row.RaceHispanic}</td>
+				<td class="race">${row.RaceAsian}</td>
+				<td class="race">${row.RaceIndian}</td>
+				<td class="race">${row.RaceOther}</td>
+				<td class="separator"></td>
+				<td class="visits">${row.Visits}</td>
+				<td class="member">${row.Member == 1 ? "Y" : "N"}</td>
+				<td class="repeat">${row.Repeat == 1 ? "Y" : "N"}</td>
+				<td class="client-choice">${row.ClientChoice == 1 ? "Y" : "N"}</td>
+			</tr>
+			<if condition="Model.Rows.Count > 0">
+				<tr class="hr">
+					<td colspan="24"></td>
+				</tr>
+				<use content="totals" if="pageIndex > 0" />
+			</if>
+		</tbody>
+	</table>
+</for>

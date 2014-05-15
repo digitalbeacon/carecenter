@@ -1,0 +1,277 @@
+﻿<use master="Basic" />
+<viewdata model="FoodNetworkReportInfo" />
+
+<content name="application-head">
+	<link type="text/css" href="${Url.Content("~/resources/reports/food-network.css")}" rel="stylesheet"/>
+</content>
+
+<div class="title">${Text("Reports.FoodNetwork.Title")}</div>
+<div class="subtitle">${Text("Reports.FoodNetwork.SubTitle")}</div>
+
+<div id="contact" class="col1">
+	<div class="item" id="DateRange">
+		<span class="label">${Text("Reports.FoodNetwork.DateRange.Label")}</span>
+		<span class="value">${Text("Reports.FoodNetwork.DateRange.Value", Model.MinDate, Model.MaxDate)}</span>
+	</div>
+	<div class="item" id="ContactName">
+		<span class="label">${Text("Reports.FoodNetwork.Contact1.Label")}</span>
+		<span class="value">${Model.ContactName.DefaultTo("&nbsp;")}</span>
+	</div>
+	<div class="item" id="AlternateContactName">
+		<span class="label">${Text("Reports.FoodNetwork.Contact2.Label")}</span>
+		<span class="value">${Model.AlternateContactName.DefaultTo("&nbsp;")}</span>
+	</div>
+	<div class="item" id="AddressWorkPhoneText">
+		<span class="label">${Text("Reports.FoodNetwork.Phone.Label")}</span>
+		<span class="value">${Model.AddressWorkPhoneText.DefaultTo("&nbsp;")}</span>
+	</div>
+	<div class="item" id="AddressFaxText">
+		<span class="label">${Text("Reports.FoodNetwork.Fax.Label")}</span>
+		<span class="value">${Model.AddressFaxText.DefaultTo("&nbsp;")}</span>
+	</div>
+</div>
+<div id="agency" class="col2">
+	<div class="item" id="AgencyNumber">
+		<span class="label">${Text("Reports.FoodNetwork.AgencyNumber.Label")}</span>
+		<span class="value">${Model.AgencyCode.DefaultTo("&nbsp;")}</span>
+	</div>
+	<div class="item" id="AgencyName">
+		<span class="label">${Text("Reports.FoodNetwork.AgencyName.Label")}</span>
+		<span class="value">${Model.AgencyName.DefaultTo("&nbsp;")}</span>
+	</div>
+	<div class="item">
+		<span class="label">&nbsp;</span>
+		<span class="place-holder">&nbsp;</span>
+	</div>
+	<div class="item" id="AddressLine1">
+		<span class="label">${Text("Reports.FoodNetwork.Address.Label")}</span>
+		<span class="value">${Model.AddressLine1.DefaultTo("&nbsp;")}</span>
+	</div>
+	<div class="item">
+		<span class="label">&nbsp;</span>
+		<span class="value">${Model.AddressCity.DefaultTo("&nbsp;")}<if condition="Model.AddressCity.HasText()">, </if>${Model.AddressState} ${Model.AddressPostalCode}</span>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="pantry col1">
+	<div class="heading">${Text("Reports.FoodNetwork.Pantry.Heading")}</div>
+	<div class="item FamiliesServed">
+		<span class="label">${Text("Reports.FoodNetwork.FamiliesServed.Label")}</span>
+		<span class="value">${Model.CountData.Families}</span>
+	</div>
+	<div class="item PeopleServed">
+		<span class="label">${Text("Reports.FoodNetwork.PeopleServed.Label")}</span>
+		<span class="value">${Model.CountData.Total}</span>
+	</div>
+	<div>
+		<span class="label">&nbsp;</span>
+		<span class="place-holder">&nbsp;</span>
+	</div>
+	<div>
+		<span class="label">&nbsp;</span>
+		<span class="place-holder">&nbsp;</span>
+	</div>
+	<div id="congregate">
+		<div class="heading">${Text("Reports.FoodNetwork.Congregate.Heading")}</div>
+		<div class="item PeopleServed">
+			<span class="label">${Text("Reports.FoodNetwork.PeopleServed.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div class="item MealsServed">
+			<span class="label">${Text("Reports.FoodNetwork.MealsServed.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div class="item SnacksServed">
+			<span class="label">${Text("Reports.FoodNetwork.SnacksServed.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div>
+			<span class="label">&nbsp;</span>
+			<span class="place-holder">&nbsp;</span>
+		</div>
+		<div>
+			<span class="label">&nbsp;</span>
+			<span class="place-holder">&nbsp;</span>
+		</div>
+	</div>
+	<div id="unableToServe">
+		<div class="item PeopleServed">
+			<span class="label">${Text("Reports.FoodNetwork.UnableToServe.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+	</div>
+</div>
+<div class="ageBreakdown col2">
+	<div class="heading">${Text("Reports.FoodNetwork.AgeBreakdown.Heading")}</div>
+	<div class="item Age0To5">
+		<span class="label">${Text("Reports.FoodNetwork.Age0To5.Label")}</span>
+		<span class="value">${Model.CountData.Age0To5}</span>
+	</div>
+	<div class="item Age6To18">
+		<span class="label">${Text("Reports.FoodNetwork.Age6To18.Label")}</span>
+		<span class="value">${Model.CountData.Age6To18}</span>
+	</div>
+	<div class="item Age6To18">
+		<span class="label">${Text("Reports.FoodNetwork.Age19To40.Label")}</span>
+		<span class="value">${Model.CountData.Age19To40}</span>
+	</div>
+	<div class="item Age6To18">
+		<span class="label">${Text("Reports.FoodNetwork.Age41To60.Label")}</span>
+		<span class="value">${Model.CountData.Age41To60}</span>
+	</div>
+	<div class="item Age6To18">
+		<span class="label">${Text("Reports.FoodNetwork.AgeOver60.Label")}</span>
+		<span class="value">${Model.CountData.AgeOver60}</span>
+	</div>
+	<div class="item AgeTotal">
+		<span class="label">${Text("Reports.FoodNetwork.AgeTotal.Label")}</span>
+		<span class="value">${(Model.CountData.Age0To5 + Model.CountData.Age6To18 + Model.CountData.Age19To40 + Model.CountData.Age41To60 + Model.CountData.AgeOver60)}</span>
+	</div>
+	<div>
+		<span class="label">&nbsp;</span>
+		<span class="place-holder">&nbsp;</span>
+	</div>
+	<div>
+		<span class="label">&nbsp;</span>
+		<span class="place-holder">&nbsp;</span>
+	</div>
+	<div id="povertyLevel">
+		<div class="item PercentBelowPoverty">
+			<span class="label">${Text("Reports.FoodNetwork.PercentBelowPoverty.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div class="item PercentAbovePoverty">
+			<span class="label">${Text("Reports.FoodNetwork.PercentAbovePoverty.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+	</div>
+	<div>
+		<span class="label">&nbsp;</span>
+		<span class="place-holder">&nbsp;</span>
+	</div>
+	<div>
+		<span class="label">&nbsp;</span>
+		<span class="place-holder">&nbsp;</span>
+	</div>
+	<div id="comments">
+		<div class="item Comments">
+			<span class="label">${Text("Reports.FoodNetwork.Comments.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div class="item">
+			<span class="label">&nbsp;</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div class="item">
+			<span class="label">&nbsp;</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div class="item">
+			<span class="label">&nbsp;</span>
+			<span class="value">&nbsp;</span>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="clear"></div>
+<div id="signature">
+	<div class="item Signature">
+		<span class="label">${Text("Reports.FoodNetwork.Signature.Label")}</span>
+		<span class="value">&nbsp;</span>
+	</div>
+	<div class="item SignatureDate">
+		<span class="label">${Text("Reports.FoodNetwork.SignatureDate.Label")}</span>
+		<span class="value">&nbsp;</span>
+	</div>
+</div>
+
+<div each="var county in Model.CountyKeys">
+	<var countyData="Model.CountyData[county]" />
+	
+	<if condition="countyIndex % 3 == 0">
+		<div class="page-break"></div>
+		<div class="title">${Text("Reports.FoodNetwork.AdditionalCounties.Heading")}</div>
+		<div class="clear"></div>
+		<div class="item">
+			<span class="label">${Text("Reports.FoodNetwork.AgencyNumber.Label")}</span>
+			<span class="value">${Model.AgencyCode}</span>
+		</div>
+		<div class="separator"></div>
+	</if>
+
+	<div class="item County">
+		<span class="label">${Text("Reports.FoodNetwork.County.Label")}</span>
+		<span class="value">${county}</span>
+	</div>
+	
+	<div class="pantry col1">
+		<div class="heading">${Text("Reports.FoodNetwork.Pantry.Heading")}</div>
+		<div class="item FamiliesServed">
+			<span class="label">${Text("Reports.FoodNetwork.FamiliesServed.Label")}</span>
+			<span class="value">${countyData.Families}</span>
+		</div>
+		<div class="item PeopleServed">
+			<span class="label">${Text("Reports.FoodNetwork.PeopleServed.Label")}</span>
+			<span class="value">${countyData.Total}</span>
+		</div>
+		<div>
+			<span class="label">&nbsp;</span>
+			<span class="place-holder">&nbsp;</span>
+		</div>
+		<div>
+			<span class="label">&nbsp;</span>
+			<span class="place-holder">&nbsp;</span>
+		</div>
+		<div>
+			<span class="label">&nbsp;</span>
+			<span class="place-holder">&nbsp;</span>
+		</div>
+		<div class="item PoundsDistributed">
+			<span class="label">${Text("Reports.FoodNetwork.PoundsDistributed.Label")}</span>
+			<span class="value">${Text("Reports.FoodNetwork.PoundsDistributed.Value", countyData.Total * 25)}</span>
+		</div>
+	</div>
+	<div class="ageBreakdown col2">
+		<div class="heading">${Text("Reports.FoodNetwork.AgeBreakdown.Heading")}</div>
+		<div class="item Age0To5">
+			<span class="label">${Text("Reports.FoodNetwork.Age0To5.Label")}</span>
+			<span class="value">${countyData.Age0To5}</span>
+		</div>
+		<div class="item Age6To18">
+			<span class="label">${Text("Reports.FoodNetwork.Age6To18.Label")}</span>
+			<span class="value">${countyData.Age6To18}</span>
+		</div>
+		<div class="item Age6To18">
+			<span class="label">${Text("Reports.FoodNetwork.Age19To40.Label")}</span>
+			<span class="value">${countyData.Age19To40}</span>
+		</div>
+		<div class="item Age6To18">
+			<span class="label">${Text("Reports.FoodNetwork.Age41To60.Label")}</span>
+			<span class="value">${countyData.Age41To60}</span>
+		</div>
+		<div class="item Age6To18">
+			<span class="label">${Text("Reports.FoodNetwork.AgeOver60.Label")}</span>
+			<span class="value">${countyData.AgeOver60}</span>
+		</div>
+		<div class="item AgeTotal">
+			<span class="label">${Text("Reports.FoodNetwork.AgeTotal.Label")}</span>
+			<span class="value">${(countyData.Total)}</span>
+		</div>
+	</div>
+	<div class="separator"></div>
+</div>
+
+<if condition="Model.CountyKeys.Count() > 0">
+	<div class="signature-padding-${Model.CountyKeys.Count() % 3}"></div>
+	<div id="signature">
+		<div class="item Signature">
+			<span class="label">${Text("Reports.FoodNetwork.Signature.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+		<div class="item SignatureDate">
+			<span class="label">${Text("Reports.FoodNetwork.SignatureDate.Label")}</span>
+			<span class="value">&nbsp;</span>
+		</div>
+	</div>
+</if>

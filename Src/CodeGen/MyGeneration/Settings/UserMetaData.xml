@@ -1,0 +1,84 @@
+<MyMeta>
+	<Global>
+		<Databases>
+			<Database p="CareCenterDemo">
+				<Table>
+					<Properties />
+				</Table>
+			</Database>
+		</Databases>
+	</Global>
+	<Databases>
+		<Database p="CareCenterDemo" n="">
+			<Tables>
+				<Table p="Location" n="">
+					<Properties>
+						<Property k="NameColumn" v="Name" />
+					</Properties>
+					<Columns>
+						<Column p="AddressId" n="AddressId">
+							<Properties>
+								<Property k="ClassRefForFk" v="True" />
+								<Property k="Cascade" v="True" />
+							</Properties>
+						</Column>
+					</Columns>
+				</Table>
+				<Table p="Client" n="">
+					<Properties>
+						<Property k="EntityPrefix" v="Generated" />
+						<Property k="Collection1TableRef" v="HouseholdMember" />
+						<Property k="Collection1Cascade" v="True" />
+						<Property k="Collection2TableRef" v="Visit" />
+						<Property k="Collection3TableRef" v="ClientComment" />
+						<Property k="Collection3Name" v="Comments" />
+					</Properties>
+					<Columns>
+						<Column p="LocationId" n="">
+							<Properties>
+								<Property k="ClassRefForFk" v="True" />
+							</Properties>
+						</Column>
+					</Columns>
+				</Table>
+				<Table p="Visit" n="">
+					<Columns>
+						<Column p="InterviewerId" n="">
+							<Properties>
+								<Property k="ClassRefForFk" v="True" />
+							</Properties>
+						</Column>
+						<Column p="LocationId" n="">
+							<Properties>
+								<Property k="ClassRefForFk" v="True" />
+							</Properties>
+						</Column>
+					</Columns>
+				</Table>
+				<Table p="Interviewer" n="">
+					<Properties>
+						<Property k="EntityPrefix" v="Generated" />
+					</Properties>
+				</Table>
+				<Table p="CommentType" n="">
+					<Properties>
+						<Property k="NameColumn" v="Name" />
+						<Property k="Enum" v="True" />
+					</Properties>
+				</Table>
+				<Table p="ClientComment" n="">
+					<Properties>
+						<Property k="EntityPrefix" v="Generated" />
+					</Properties>
+					<Columns>
+						<Column p="CommentTypeId" n="">
+							<Properties>
+								<Property k="ClassRefForFk" v="True" />
+							</Properties>
+						</Column>
+					</Columns>
+				</Table>
+			</Tables>
+		</Database>
+	</Databases>
+</MyMeta>

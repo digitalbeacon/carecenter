@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Site.Copyright" xml:space="preserve">
+    <value>&lt;a href="http://digitalbeacon.com"&gt;Digital Beacon&lt;/a&gt; &amp;copy; 2014</value>
+  </data>
+  <data name="Site.Title" xml:space="preserve">
+    <value>Care Center Demo</value>
+  </data>
+  <data name="Locations.Plural.Label" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="Locations.Singular.Label" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Interviewers.Plural.Label" xml:space="preserve">
+    <value>Interviewers</value>
+  </data>
+  <data name="Interviewers.Singular.Label" xml:space="preserve">
+    <value>Interviewer</value>
+  </data>
+  <data name="Clients.Photo.Label" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="Clients.Plural.Label" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="Clients.Singular.Label" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="Clients.Income.Label" xml:space="preserve">
+    <value>Income</value>
+  </data>
+  <data name="Clients.Repeat.Label" xml:space="preserve">
+    <value>Repeat?</value>
+  </data>
+  <data name="Clients.Unemployed.Label" xml:space="preserve">
+    <value>Unemployed - income below poverty</value>
+  </data>
+  <data name="Clients.Phone.Label" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Household.Name.Label" xml:space="preserve">
+    <value>Last, First MI</value>
+  </data>
+  <data name="Household.Plural.Label" xml:space="preserve">
+    <value>Household Members</value>
+  </data>
+  <data name="Household.Singular.Label" xml:space="preserve">
+    <value>Household Member</value>
+  </data>
+  <data name="Visits.Date.Label" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Visits.Description.Format" xml:space="preserve">
+    <value>{0} for {1}</value>
+  </data>
+  <data name="Visits.Interviewer.Label" xml:space="preserve">
+    <value>Interviewer</value>
+  </data>
+  <data name="Visits.Plural.Label" xml:space="preserve">
+    <value>Visits</value>
+  </data>
+  <data name="Visits.Singular.Label" xml:space="preserve">
+    <value>Visit</value>
+  </data>
+  <data name="Clients.Flagged.Label" xml:space="preserve">
+    <value>Follow Up</value>
+  </data>
+  <data name="PostalCodes.Plural.Label" xml:space="preserve">
+    <value>Zip Codes</value>
+  </data>
+  <data name="PostalCodes.Singular.Label" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="Clients.LastFourSsn.HelpText" xml:space="preserve">
+    <value>For privacy reasons, only the last 4 digits of the social security number are displayed.</value>
+  </data>
+  <data name="DigitalBeacon.CareCenter.DuplicateSsn" xml:space="preserve">
+    <value>The specified SSN is already in use.</value>
+  </data>
+  <data name="Clients.RedirectFromSsnSearch.Message" xml:space="preserve">
+    <value>An existing client with the specified social security number was found and is displayed below.</value>
+  </data>
+  <data name="Clients.IncludeInactive.Label" xml:space="preserve">
+    <value>Include Inactive</value>
+  </data>
+  <data name="Clients.LocationName.Label" xml:space="preserve">
+    <value>Location Name</value>
+  </data>
+  <data name="Common.PostalCode.Label" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="Common.Ssn.Label.Short" xml:space="preserve">
+    <value>Soc. Security No.</value>
+  </data>
+  <data name="Clients.Flagged.Message" xml:space="preserve">
+    <value>This client is currenty flagged for follow up.</value>
+  </data>
+  <data name="Clients.Inactive.Warning" xml:space="preserve">
+    <value>This client is currently marked as inactive.</value>
+  </data>
+  <data name="Clients.LastVisitDate.Label" xml:space="preserve">
+    <value>Last Visit</value>
+  </data>
+  <data name="Clients.DeleteConfirmText" xml:space="preserve">
+    <value>Consider setting the client to inactive instead. Delete this client?</value>
+  </data>
+  <data name="Reports.Heading" xml:space="preserve">
+    <value>Food Pantry Reports</value>
+  </data>
+  <data name="Reports.Run.Label" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Reports.MaxDate.Label" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Reports.MinDate.Label" xml:space="preserve">
+    <value>Reporting Period</value>
+  </data>
+  <data name="Reports.LeftFooter" xml:space="preserve">
+    <value>Generated by {0} on {1:d} at {1:t}</value>
+  </data>
+  <data name="Reports.Download.Label" xml:space="preserve">
+    <value>Download Report</value>
+  </data>
+  <data name="Reports.Download.HelpText" xml:space="preserve">
+    <value>If this option is checked, the report will be downloaded. Otherwise, the report will be displayed in another window.</value>
+  </data>
+  <data name="ClientComments.Plural.Label" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ClientComments.Singular.Label" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Comments.Text.Label" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="ClientComments.Create.Confirmation" xml:space="preserve">
+    <value>{1} for **{0}** added.</value>
+  </data>
+  <data name="Comments.Description.Format" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="CommentTypes.Plural.Label" xml:space="preserve">
+    <value>Comment Types</value>
+  </data>
+  <data name="CommentTypes.Singular.Label" xml:space="preserve">
+    <value>Comment Type</value>
+  </data>
+  <data name="CommentTypes.Flag.Label" xml:space="preserve">
+    <value>Flag</value>
+  </data>
+  <data name="Clients.ThisWeek.Label" xml:space="preserve">
+    <value>This Week</value>
+  </data>
+  <data name="Clients.AppointmentDay.Label" xml:space="preserve">
+    <value>Appt. Day</value>
+  </data>
+  <data name="Clients.LastWeek.Label" xml:space="preserve">
+    <value>Last Week</value>
+  </data>
+  <data name="Common.Active.Label" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Clients.Enabled.Active.Label" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Clients.Enabled.Both.Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Clients.Enabled.Inactive.Label" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Clients.Flagged.Tooltip" xml:space="preserve">
+    <value>This client is currenty flagged for follow up.</value>
+  </data>
+  <data name="Clients.FlaggedComment.Tooltip" xml:space="preserve">
+    <value>This client has one or more flagged comments.</value>
+  </data>
+  <data name="Common.Status.Label" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Reports.AllLocations.Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Reports.Client.Header" xml:space="preserve">
+    <value>Client Report</value>
+  </data>
+  <data name="Reports.Client.Name.Label" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Reports.Client.Title" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="Reports.Common.DateFormat" xml:space="preserve">
+    <value>{0:M/d/yyyy}</value>
+  </data>
+  <data name="Reports.Common.DateRange.Format" xml:space="preserve">
+    <value>Date Range: {0:d} - {1:d}</value>
+  </data>
+  <data name="Reports.Common.SubTitle" xml:space="preserve">
+    <value>Location: {0}</value>
+  </data>
+  <data name="Reports.Common.Total.Label" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Clients.Report.Label" xml:space="preserve">
+    <value>Create Printable List Report</value>
+  </data>
+  <data name="Clients.DetailReport.Label" xml:space="preserve">
+    <value>Create Printable Detailed Report</value>
+  </data>
+  <data name="Clients.ProcessInactive.Confirmation" xml:space="preserve">
+    <value>{0} clients set to inactive.</value>
+  </data>
+  <data name="Clients.Today.Label" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="Clients.Bibles.Label" xml:space="preserve">
+    <value># Bibles</value>
+  </data>
+  <data name="Clients.ClientChoice.Label" xml:space="preserve">
+    <value>Client Choice</value>
+  </data>
+  <data name="Clients.Elderly.Label" xml:space="preserve">
+    <value>Age sixty or over - income below poverty</value>
+  </data>
+  <data name="Clients.FoodStamps.Label" xml:space="preserve">
+    <value>Food Stamps</value>
+  </data>
+  <data name="Clients.Member.Label" xml:space="preserve">
+    <value>Member?</value>
+  </data>
+  <data name="Clients.SelfDeclared.Label" xml:space="preserve">
+    <value>Self-declaration - income below poverty</value>
+  </data>
+  <data name="Clients.Ssi.Label" xml:space="preserve">
+    <value>SSI</value>
+  </data>
+  <data name="Clients.Tanf.Label" xml:space="preserve">
+    <value>TANF</value>
+  </data>
+  <data name="Clients.UniqueId.Label" xml:space="preserve">
+    <value>Client ID</value>
+  </data>
+  <data name="Clients.HouseholdCount.HelpText" xml:space="preserve">
+    <value>Household count is updated when household members are added or removed.</value>
+  </data>
+  <data name="Clients.HouseholdCount.Label" xml:space="preserve">
+    <value>Household Count</value>
+  </data>
+  <data name="Clients.HouseholdCount.Label.Short" xml:space="preserve">
+    <value>HH#</value>
+  </data>
+  <data name="Clients.Programs.Label" xml:space="preserve">
+    <value>Check items below in which client participates.</value>
+  </data>
+  <data name="DigitalBeacon.CareCenter.DuplicateUniqueId" xml:space="preserve">
+    <value>The specified Unique ID is already in use.</value>
+  </data>
+  <data name="Locations.AgencyCode.Label" xml:space="preserve">
+    <value>Agency Number</value>
+  </data>
+  <data name="Locations.AgencyName.Label" xml:space="preserve">
+    <value>Agency Name</value>
+  </data>
+  <data name="Locations.AlternateContactName.Label" xml:space="preserve">
+    <value>Alternate Contact</value>
+  </data>
+  <data name="Locations.ContactName.Label" xml:space="preserve">
+    <value>Primary Contact</value>
+  </data>
+  <data name="Reports.Date.Format" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="Reports.Detail.Age0To5.Label" xml:space="preserve">
+    <value>0&lt;br/&gt;to&lt;br/&gt;5</value>
+  </data>
+  <data name="Reports.Detail.Age19To40.Label" xml:space="preserve">
+    <value>19&lt;br/&gt;to&lt;br/&gt;40</value>
+  </data>
+  <data name="Reports.Detail.Age41To60.Label" xml:space="preserve">
+    <value>41&lt;br/&gt;to&lt;br/&gt; 60</value>
+  </data>
+  <data name="Reports.Detail.Age6To18.Label" xml:space="preserve">
+    <value>6&lt;br/&gt;to&lt;br/&gt;18</value>
+  </data>
+  <data name="Reports.Detail.AgeOver60.Label" xml:space="preserve">
+    <value>&gt;&lt;br/&gt;60</value>
+  </data>
+  <data name="Reports.Detail.Bibles.Label" xml:space="preserve">
+    <value># Bibles</value>
+  </data>
+  <data name="Reports.Detail.ClientChoice.Label" xml:space="preserve">
+    <value>Client Choice</value>
+  </data>
+  <data name="Reports.Detail.FamilyTotal.Label" xml:space="preserve">
+    <value>Families Served</value>
+  </data>
+  <data name="Reports.Detail.Header" xml:space="preserve">
+    <value>Detail Report</value>
+  </data>
+  <data name="Reports.Detail.HouseholdCount.Label" xml:space="preserve">
+    <value>#&lt;br/&gt;HH</value>
+  </data>
+  <data name="Reports.Detail.HouseholdCounts.Label" xml:space="preserve">
+    <value>Household Count</value>
+  </data>
+  <data name="Reports.Detail.HousehouldCounts.Heading" xml:space="preserve">
+    <value>Breakdown of Families Served By Household Count</value>
+  </data>
+  <data name="Reports.Detail.LastVisitDate.Format" xml:space="preserve">
+    <value>{0:M/d/yy}</value>
+  </data>
+  <data name="Reports.Detail.LastVisitDate.Label" xml:space="preserve">
+    <value>Last Visit</value>
+  </data>
+  <data name="Reports.Detail.Name.Label" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Reports.Detail.PeopleTotal.Label" xml:space="preserve">
+    <value>People Served</value>
+  </data>
+  <data name="Reports.Detail.Member.Label" xml:space="preserve">
+    <value>Member?</value>
+  </data>
+  <data name="Reports.Detail.Race.Label" xml:space="preserve">
+    <value>Racial&lt;br/&gt;Ethnic&lt;br/&gt;Group</value>
+  </data>
+  <data name="Reports.Detail.RaceAsian.Label" xml:space="preserve">
+    <value>Asian</value>
+  </data>
+  <data name="Reports.Detail.RaceBlack.Label" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="Reports.Detail.RaceHispanic.Label" xml:space="preserve">
+    <value>Hispanic</value>
+  </data>
+  <data name="Reports.Detail.RaceIndian.Label" xml:space="preserve">
+    <value>Indian</value>
+  </data>
+  <data name="Reports.Detail.RaceOther.Label" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Reports.Detail.RaceWhite.Label" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="Reports.Detail.Repeat.Label" xml:space="preserve">
+    <value>Repeat?</value>
+  </data>
+  <data name="Reports.Detail.Title" xml:space="preserve">
+    <value>Detail Report</value>
+  </data>
+  <data name="Reports.Detail.Visits.Label" xml:space="preserve">
+    <value># Visits</value>
+  </data>
+  <data name="Reports.FoodNetwork.AdditionalCounties.Heading" xml:space="preserve">
+    <value>ADDITIONAL COUNTIES SERVED</value>
+  </data>
+  <data name="Reports.FoodNetwork.Address.Label" xml:space="preserve">
+    <value>SITE ADDRESS:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Age0To5.Label" xml:space="preserve">
+    <value>0 TO 5:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Age19To40.Label" xml:space="preserve">
+    <value>19 TO 40:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Age41To60.Label" xml:space="preserve">
+    <value>41 TO 60:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Age6To18.Label" xml:space="preserve">
+    <value>6 TO 18:</value>
+  </data>
+  <data name="Reports.FoodNetwork.AgeBreakdown.Heading" xml:space="preserve">
+    <value>AGES OF PEOPLE SERVED</value>
+  </data>
+  <data name="Reports.FoodNetwork.AgencyName.Label" xml:space="preserve">
+    <value>AGENCY NAME:</value>
+  </data>
+  <data name="Reports.FoodNetwork.AgencyNumber.Label" xml:space="preserve">
+    <value>AGENCY #:</value>
+  </data>
+  <data name="Reports.FoodNetwork.AgeOver60.Label" xml:space="preserve">
+    <value>OVER 60:</value>
+  </data>
+  <data name="Reports.FoodNetwork.AgeTotal.Label" xml:space="preserve">
+    <value>TOTAL:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Comments.Label" xml:space="preserve">
+    <value>COMMENTS:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Congregate.Heading" xml:space="preserve">
+    <value>CONGREGATE (ON-SITE FEEDING)</value>
+  </data>
+  <data name="Reports.FoodNetwork.Contact1.Label" xml:space="preserve">
+    <value>CONTACT:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Contact2.Label" xml:space="preserve">
+    <value>&amp;nbsp;</value>
+  </data>
+  <data name="Reports.FoodNetwork.County.Label" xml:space="preserve">
+    <value>COUNTY:</value>
+  </data>
+  <data name="Reports.FoodNetwork.DateRange.Label" xml:space="preserve">
+    <value>DATE:</value>
+  </data>
+  <data name="Reports.FoodNetwork.DateRange.Value" xml:space="preserve">
+    <value>{0:d} - {1:d}</value>
+  </data>
+  <data name="Reports.FoodNetwork.FamiliesServed.Label" xml:space="preserve">
+    <value>FAMILIES SERVED:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Fax.Label" xml:space="preserve">
+    <value>FAX:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Header" xml:space="preserve">
+    <value>Mississippi Food Network Report</value>
+  </data>
+  <data name="Reports.FoodNetwork.MealsServed.Label" xml:space="preserve">
+    <value>MEALS SERVED:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Pantry.Heading" xml:space="preserve">
+    <value>PANTRY</value>
+  </data>
+  <data name="Reports.FoodNetwork.PeopleServed.Label" xml:space="preserve">
+    <value>PEOPLE SERVED:</value>
+  </data>
+  <data name="Reports.FoodNetwork.PercentAbovePoverty.Label" xml:space="preserve">
+    <value>% ABOVE POVERTY LEVEL:</value>
+  </data>
+  <data name="Reports.FoodNetwork.PercentBelowPoverty.Label" xml:space="preserve">
+    <value>% BELOW POVERTY LEVEL:</value>
+  </data>
+  <data name="Reports.FoodNetwork.Phone.Label" xml:space="preserve">
+    <value>PHONE:</value>
+  </data>
+  <data name="Reports.FoodNetwork.PoundsDistributed.Label" xml:space="preserve">
+    <value>ESTIMATED OR CALCULATED POUNDS DISTRIBUTED:</value>
+  </data>
+  <data name="Reports.FoodNetwork.PoundsDistributed.Value" xml:space="preserve">
+    <value>{0:###,###,##0} lbs.</value>
+  </data>
+  <data name="Reports.FoodNetwork.Signature.Label" xml:space="preserve">
+    <value>SIGNATURE OF REPRESENTATIVE</value>
+  </data>
+  <data name="Reports.FoodNetwork.SignatureDate.Label" xml:space="preserve">
+    <value>DATE</value>
+  </data>
+  <data name="Reports.FoodNetwork.SnacksServed.Label" xml:space="preserve">
+    <value>SNACKS:</value>
+  </data>
+  <data name="Reports.FoodNetwork.SubTitle" xml:space="preserve">
+    <value>AGENCY MONTHLY REPORT</value>
+  </data>
+  <data name="Reports.FoodNetwork.Title" xml:space="preserve">
+    <value>MISSISSIPPI FOOD NETWORK</value>
+  </data>
+  <data name="Reports.FoodNetwork.UnableToServe.Label" xml:space="preserve">
+    <value>PEOPLE UNABLE TO SERVE:</value>
+  </data>
+  <data name="Reports.NewClient.Description.Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Reports.NewClient.Header" xml:space="preserve">
+    <value>New Clients Report</value>
+  </data>
+  <data name="Reports.NewClient.Name.Label" xml:space="preserve">
+    <value>First Time Clients</value>
+  </data>
+  <data name="Reports.NewClient.Title" xml:space="preserve">
+    <value>Demographics of Service</value>
+  </data>
+  <data name="Reports.NewClient.Total.Label" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Reports.ZipCode.Description.Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Reports.ZipCode.FamilyTotal.Label" xml:space="preserve">
+    <value>Families&lt;br/&gt;Served</value>
+  </data>
+  <data name="Reports.ZipCode.Header" xml:space="preserve">
+    <value>Visit Counts By Zip Code Report</value>
+  </data>
+  <data name="Reports.ZipCode.NewFamilyTotal.Label" xml:space="preserve">
+    <value>New&lt;br/&gt;Families&lt;br/&gt;Served</value>
+  </data>
+  <data name="Reports.ZipCode.NewPeopleTotal.Label" xml:space="preserve">
+    <value>New&lt;br/&gt;People&lt;br/&gt;Served</value>
+  </data>
+  <data name="Reports.ZipCode.PeopleTotal.Label" xml:space="preserve">
+    <value>People&lt;br/&gt;Served</value>
+  </data>
+  <data name="Reports.ZipCode.Title" xml:space="preserve">
+    <value>Demographics of Service</value>
+  </data>
+  <data name="Reports.ZipCode.Total.Label" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="ClientComments.Update.Confirmation" xml:space="preserve">
+    <value>{1} for **{0}** saved.</value>
+  </data>
+  <data name="Reports.ZipCode.NoZipCode.Label" xml:space="preserve">
+    <value>Zip Code Unavailable</value>
+  </data>
+</root>

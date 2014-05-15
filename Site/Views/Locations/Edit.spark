@@ -1,0 +1,47 @@
+﻿<viewdata model="EditModel" />
+
+<content name="header">${Model.Heading}</content>
+
+<sbFormPanel panelId="'locationEditPanel'" panelClass="'multi-col'">
+	<div class="col">
+		<sbFormRow property="P(m => m.Name)" />
+		<sbFormRow property="P(m => m.AgencyName)" />
+		<sbFormRow property="P(m => m.AgencyCode)" />
+		<sbFormRow property="P(m => m.ContactName)" />
+		<sbFormRow property="P(m => m.AlternateContactName)" />
+		<sbFormRow property="P(m => m.DisplayOrder)" />
+		<sbFormRow property="P(m => m.Inactive)" inputType="checkBox" />
+		<sbFormRow inputType="submit" />
+	</div>
+	<div class="col">
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.Line1)" />
+		<!--<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.Line2)" />-->
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.PostalCode)" mask="WebConstants.UsaPostalCodeMask" />
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.City)" />
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.StateId)" inputType="dropDownList" includeEmptyOption="true" />
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.County)" />
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.WorkPhone)" label="'Common.Phone.Label'" mask="WebConstants.PhoneMask" />
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.Fax)" mask="WebConstants.PhoneMask" />
+		<sbFormRow property="P(m => m.Address)" subProperty="P(m => m.Address.Email)" />
+	</div>
+</sbFormPanel>
+
+<content name="readyScript">
+	var $locationEditPanel = $('#locationEditPanel');
+	var locationEditPanel =$locationEditPanel.data('sbFormPanel');
+	$locationEditPanel.find('#Inactive').change(function() {$locationEditPanel.find('#DisplayOrder').val(this.checked ? '0' : ''); });
+	${ValidationRule("Name", "locationEditPanel", "remote", "'{0}'".FormatWith(Url.Action("validateName", new { Id = Model.Id })), "Error.Name.Duplicate")}
+	var postalCode = $('#Address_PostalCode', locationEditPanel.element);
+	postalCode.change(function(e) {
+		if (postalCode.val() && $.trim(postalCode.val()).length == 5 && postalCode.data('last-value') != postalCode.val()) {
+			postalCode.data('last-value', postalCode.val());
+			$.get($.digitalbeacon.resolveUrl('~/postalCodes/' + postalCode.val() + '/json'), null, function(response) {
+				if (response) {
+					$('#Address_City', locationEditPanel.element).val(response.City);
+					$('#Address_StateId', locationEditPanel.element).val(response.StateId);
+					$('#Address_County', locationEditPanel.element).val(response.County);
+				}
+			});
+		}
+	});
+</content>

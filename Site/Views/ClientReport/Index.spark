@@ -1,0 +1,34 @@
+﻿<viewdata model="BaseReportModel" />
+
+<content name="header">${Text("Reports.Client.Header")}</content>
+
+<var panelId="'reportPanel'" />
+
+<sbFormPanel>
+	<sbFormRow property="P(m => m.LocationId)" includeEmptyOption="true" />
+	<sbFormRow property="P(m => m.MinDate)" />
+	<sbFormRow property="P(m => m.MaxDate)" />
+	<sbFormRow property="P(m => m.CommentTypeId)" includeEmptyOption="true" />
+	<sbFormRow property="P(m => m.Inactive)" inputType="dropDownList" includeEmptyOption="false" />
+	<sbFormRow property="P(m => m.Download)" helpText="'Reports.Download.HelpText'" />
+	<sbFormRow>
+		<input type="submit" id="run" value="${Text('Reports.Run.Label')}" data-url="${Url.Action('report')}" />
+	</sbFormRow>
+</sbFormPanel>
+
+<content name="readyScript">
+	var ${panelId} = $('#${panelId}').data('sbFormPanel');
+	${panelId}.formTarget = '_blank';
+	$('#run', ${panelId}.element).click(function(e) { 
+/*	
+		if ($('#Download:checked', ${panelId}.element).length) {
+			${panelId}.formTarget = null;
+		}
+		else {
+			$.sb.modalBox('<h1>Report</h1><iframe class="report" frameborder="0" src="' + ${panelId}.form.action + '/create?' + $(${panelId}.form).serialize() + '"/>');
+			return false;
+		}
+*/		
+		${panelId}.resetSubmitFlag(); 
+	});
+</content>

@@ -1,0 +1,118 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{03524EE5-5EC3-4467-8652-8FFE00545091}"
+	ProjectSection(SolutionItems) = preProject
+		Config\appSettings.config = Config\appSettings.config
+		Config\authentication.config = Config\authentication.config
+		Config\CareCenter.config = Config\CareCenter.config
+		Config\connectionStrings.config = Config\connectionStrings.config
+		Src\Config\GeneratedDao.xml = Src\Config\GeneratedDao.xml
+		Config\log4net.config = Config\log4net.config
+		Config\machineKey.config = Config\machineKey.config
+		Config\NHibernate.config = Config\NHibernate.config
+		Config\Site.config = Config\Site.config
+		Config\smtp.config = Config\smtp.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{404FB414-123F-433D-9DF2-C2E0EB90BBE7}"
+	ProjectSection(SolutionItems) = preProject
+		Database\data-model.sql = Database\data-model.sql
+		Database\reset-db.cmd = Database\reset-db.cmd
+		Database\seed-data.sql = Database\seed-data.sql
+		Database\test-data.sql = Database\test-data.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{87C4BB66-7633-465C-88C8-7BBD40B7F0D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{B9657B49-3276-430E-AE3C-90A39BCB8C60}"
+	ProjectSection(SolutionItems) = preProject
+		Config\Base\CommonDao.config = Config\Base\CommonDao.config
+		Config\Base\ContentDao.config = Config\Base\ContentDao.config
+		Config\Base\GeneratedDao.xml = Config\Base\GeneratedDao.xml
+		Config\Base\log4net.config = Config\Base\log4net.config
+		Config\Base\MessagingDao.config = Config\Base\MessagingDao.config
+		Config\Base\NHibernate.config = Config\Base\NHibernate.config
+		Config\Base\Services.config = Config\Base\Services.config
+		Config\Base\Site.config = Config\Base\Site.config
+		Config\Base\SiteBaseData.xml = Config\Base\SiteBaseData.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBeacon.CareCenter.Site", "Site\DigitalBeacon.CareCenter.Site.csproj", "{22BF456B-CFB6-4356-B7D8-4A2CDA4A92BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F947BDF-5034-4BF3-8914-972BF5D6AA7C} = {1F947BDF-5034-4BF3-8914-972BF5D6AA7C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBeacon.CareCenter.Model", "Src\Model\DigitalBeacon.CareCenter.Model.csproj", "{250A8318-43E1-4A25-9297-696E921685B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBeacon.CareCenter.Data", "Src\Data\DigitalBeacon.CareCenter.Data.csproj", "{CAA1C363-C3DE-4E3F-BBC5-67AB2BFC49DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBeacon.CareCenter.Business", "Src\Business\DigitalBeacon.CareCenter.Business.csproj", "{B308F53B-015E-4BC2-BA5A-058E5077CF70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBeacon.CareCenter.SqlUpdate", "Src\SqlUpdate\DigitalBeacon.CareCenter.SqlUpdate.csproj", "{042F7A1F-F9FE-4B7C-909D-23C8501AB0A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeGen", "CodeGen", "{EC53FE2B-3083-424A-A27D-0E38598AE6A2}"
+	ProjectSection(SolutionItems) = preProject
+		Src\CodeGen\MyGeneration\Projects\CareCenter.zprj = Src\CodeGen\MyGeneration\Projects\CareCenter.zprj
+		Src\CodeGen\MyGeneration\Settings\UserMetaData.xml = Src\CodeGen\MyGeneration\Settings\UserMetaData.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBeacon.CareCenter.Scripts", "Src\Scripts\DigitalBeacon.CareCenter.Scripts.csproj", "{1F947BDF-5034-4BF3-8914-972BF5D6AA7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Live", "Live", "{571D6D2A-BA54-435F-A8C3-FF0A884A5EB2}"
+	ProjectSection(SolutionItems) = preProject
+		Config\Live\Web.config = Config\Live\Web.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{FF41A691-FFE1-4CD5-828A-2DF526A59C15}"
+	ProjectSection(SolutionItems) = preProject
+		Base\SiteBase\Database\common-data-model.sql = Base\SiteBase\Database\common-data-model.sql
+		Base\SiteBase\Database\common-seed-data.sql = Base\SiteBase\Database\common-seed-data.sql
+		Base\SiteBase\Database\create-db-user.sql = Base\SiteBase\Database\create-db-user.sql
+		Base\SiteBase\Database\postal-codes.sql = Base\SiteBase\Database\postal-codes.sql
+		Base\SiteBase\Database\test-data.sql = Base\SiteBase\Database\test-data.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22BF456B-CFB6-4356-B7D8-4A2CDA4A92BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22BF456B-CFB6-4356-B7D8-4A2CDA4A92BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22BF456B-CFB6-4356-B7D8-4A2CDA4A92BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22BF456B-CFB6-4356-B7D8-4A2CDA4A92BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{250A8318-43E1-4A25-9297-696E921685B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250A8318-43E1-4A25-9297-696E921685B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250A8318-43E1-4A25-9297-696E921685B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250A8318-43E1-4A25-9297-696E921685B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAA1C363-C3DE-4E3F-BBC5-67AB2BFC49DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA1C363-C3DE-4E3F-BBC5-67AB2BFC49DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA1C363-C3DE-4E3F-BBC5-67AB2BFC49DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA1C363-C3DE-4E3F-BBC5-67AB2BFC49DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B308F53B-015E-4BC2-BA5A-058E5077CF70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B308F53B-015E-4BC2-BA5A-058E5077CF70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B308F53B-015E-4BC2-BA5A-058E5077CF70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B308F53B-015E-4BC2-BA5A-058E5077CF70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{042F7A1F-F9FE-4B7C-909D-23C8501AB0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042F7A1F-F9FE-4B7C-909D-23C8501AB0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042F7A1F-F9FE-4B7C-909D-23C8501AB0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042F7A1F-F9FE-4B7C-909D-23C8501AB0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F947BDF-5034-4BF3-8914-972BF5D6AA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F947BDF-5034-4BF3-8914-972BF5D6AA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F947BDF-5034-4BF3-8914-972BF5D6AA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F947BDF-5034-4BF3-8914-972BF5D6AA7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{87C4BB66-7633-465C-88C8-7BBD40B7F0D8} = {03524EE5-5EC3-4467-8652-8FFE00545091}
+		{B9657B49-3276-430E-AE3C-90A39BCB8C60} = {03524EE5-5EC3-4467-8652-8FFE00545091}
+		{571D6D2A-BA54-435F-A8C3-FF0A884A5EB2} = {03524EE5-5EC3-4467-8652-8FFE00545091}
+		{FF41A691-FFE1-4CD5-828A-2DF526A59C15} = {404FB414-123F-433D-9DF2-C2E0EB90BBE7}
+	EndGlobalSection
+EndGlobal
