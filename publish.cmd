@@ -44,6 +44,7 @@ copy /y Site\Bin\*.dll Publish\Site\Bin
 copy /y Site\Bin\*.pdb Publish\Site\Bin
 
 mkdir Publish\Config\Config
+xcopy /Y Site\web.config Publish\Config
 xcopy Config\Base\*.config Publish\Config\Config
 xcopy /Y Config\*.config Publish\Config\Config
 xcopy /Y Config\Live\web.config Publish\Config
