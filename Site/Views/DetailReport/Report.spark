@@ -6,11 +6,17 @@
 	<link type="text/css" href="${Url.Content("~/resources/reports/detail.css")}" rel="stylesheet"/>
 </content>
 
-<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>
-<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
-<div class="title">${Text("Reports.Detail.Title")}</div>
-<div class="subtitle-location">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")}</div>
-<div class="subtitle-date-range">${Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate)}</div>
+<table>
+	<tr>
+		<td>
+			<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>
+			<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
+			<div class="title">${Text("Reports.Detail.Title")}</div>
+			<div class="subtitle-location">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")}</div>
+			<div class="subtitle-date-range">${Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate)}</div>
+		</td>
+	</tr>
+</table>
 
 <table id="householdCountBreakdown">
 	<thead>

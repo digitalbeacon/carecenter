@@ -45,6 +45,8 @@ table
 {
 	width: 72em;
 	border-collapse:collapse;
+	margin-left: auto;
+	margin-right: auto;
 }
 th
 {

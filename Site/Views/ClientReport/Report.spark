@@ -6,10 +6,16 @@
 	<link type="text/css" href="${Url.Content("~/resources/reports/client.css")}" rel="stylesheet"/>
 </content>
 
-<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
-<!--<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>-->
-<div class="title">${Text("Reports.Client.Title")}</div>
-<div class="subtitle">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")} ${(Model.MinDate.HasValue && Model.MaxDate.HasValue) ? Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate) : String.Empty}</div>
+<table>
+	<tr>
+		<td>
+			<div id="report-logo-left"><img src="${Url.Content("~/resources/images/report-logo-left.png")}" /></div>
+			<!--<div id="report-logo-right"><img src="${Url.Content("~/resources/images/report-logo-right.png")}" /></div>-->
+			<div class="title">${Text("Reports.Client.Title")}</div>
+			<div class="subtitle">${ Model.LocationName.HasText() ? Text("Reports.Common.SubTitle", Model.LocationName) : Text("Reports.AllLocations.Label")} ${(Model.MinDate.HasValue && Model.MaxDate.HasValue) ? Text("Reports.Common.DateRange.Format", Model.MinDate, Model.MaxDate) : String.Empty}</div>
+		</td>
+	</tr>
+</table>
 
 <default colspan="10" />
 

@@ -47,6 +47,23 @@ namespace DigitalBeacon.CareCenter.Site.Controllers.Reports
 			});
 		}
 
+		protected Uri ReportingBaseUrl
+		{
+			get
+			{
+				var baseUrl = ConfigurationManager.AppSettings["ReportingBaseUrl"];
+				if (baseUrl.HasText())
+				{
+					return new Uri(baseUrl);
+				}
+				var ub = new UriBuilder(Request.Url);
+				ub.Host = "localhost";
+				ub.Path = Request.ApplicationPath;
+				ub.Query = null;
+				return ub.Uri;
+			}
+		}
+
 		public ActionResult Index(BaseReportModel model)
 		{
 			ModelState.Clear();
@@ -100,9 +117,8 @@ namespace DigitalBeacon.CareCenter.Site.Controllers.Reports
 			{
 				options = "--footer-left \"" + options + "\"";
 			}
-			var htmlUrl = new Uri(new Uri(ConfigurationManager.AppSettings["ReportingBaseUrl"]), 
-				Url.Action("html", ConstructRouteValues(model))).AbsoluteUri;
-			return HtmlToPdfAction(model.Download ?? false ? "report.pdf" : null, htmlUrl, UseLandscapeOrientation, options) ?? DefaultErrorAction();
+			var htmlUrl = new Uri(ReportingBaseUrl, Url.Action("html", ConstructRouteValues(model))).AbsoluteUri;
+			return HtmlToPdfAction(model.Download ?? false ? (WebConstants.IsPdfGenerationEnabled ? "report.pdf" : "report.html") : null, htmlUrl, UseLandscapeOrientation, options) ?? DefaultErrorAction();
 		}
 
 		public ActionResult Html(BaseReportModel model)

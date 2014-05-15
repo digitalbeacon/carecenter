@@ -10,7 +10,7 @@
 	<sbFormRow property="P(m => m.MaxDate)" />
 	<sbFormRow property="P(m => m.CommentTypeId)" includeEmptyOption="true" />
 	<sbFormRow property="P(m => m.Inactive)" inputType="dropDownList" includeEmptyOption="false" />
-	<sbFormRow property="P(m => m.Download)" helpText="'Reports.Download.HelpText'" />
+	<sbFormRow property="P(m => m.Download)" helpText="'Reports.Download.HelpText'" if="WebConstants.IsPdfGenerationEnabled" />
 	<sbFormRow>
 		<input type="submit" id="run" value="${Text('Reports.Run.Label')}" data-url="${Url.Action('report')}" />
 	</sbFormRow>
@@ -20,15 +20,6 @@
 	var ${panelId} = $('#${panelId}').data('sbFormPanel');
 	${panelId}.formTarget = '_blank';
 	$('#run', ${panelId}.element).click(function(e) { 
-/*	
-		if ($('#Download:checked', ${panelId}.element).length) {
-			${panelId}.formTarget = null;
-		}
-		else {
-			$.sb.modalBox('<h1>Report</h1><iframe class="report" frameborder="0" src="' + ${panelId}.form.action + '/create?' + $(${panelId}.form).serialize() + '"/>');
-			return false;
-		}
-*/		
 		${panelId}.resetSubmitFlag(); 
 	});
 </content>
