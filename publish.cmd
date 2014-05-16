@@ -56,16 +56,23 @@ if not defined zipexe if exist "%PROGRAMW6432%\7-Zip\7z.exe" set zipexe=%PROGRAM
 
 if defined zipexe (
 	cd Publish\Site
-	"%zipexe%" a -r ..\%Project%%Version%.zip *
+	"%zipexe%" a -r -xr^^!.git* ..\%Project%%Version%.zip *
 	cd ..\..\Site
-	"%zipexe%" a -r ..\Publish\SiteBaseResources%Version%.zip Resources\Base\*
+	"%zipexe%" a -r -xr^^!.git* ..\Publish\SiteBaseResources%Version%.zip Resources\Base\*
 	cd ..\Publish\Config
-	"%zipexe%" a -r ..\Config%Version%.zip *
+	"%zipexe%" a -r -xr^^!.git* ..\Config%Version%.zip *
 	cd ..\..
 )
 
 mkdir Publish\Site\Resources\Base
 xcopy Site\Resources\Base Publish\Site\Resources\Base /E
+
+xcopy Publish\Config\* Publish\Site /E
+rmdir /s /q Publish\Config
+
+cd Publish\Site
+del /S /Q .git*
+cd ..\..
 
 if not defined zipexe (
 	echo.
