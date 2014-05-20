@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Site.Copyright" xml:space="preserve">
-    <value>&lt;a href="http://digitalbeacon.com"&gt;Digital Beacon&lt;/a&gt; &amp;copy; 2014</value>
+    <value>&lt;a href="http://digitalbeacon.com"&gt;Digital Beacon&lt;/a&gt;&amp;nbsp;&amp;copy; 2014&lt;br /&gt;Source code available at &lt;a href="https://github.com/digitalbeacon/carecenter"&gt;GitHub&lt;/a&gt;</value>
   </data>
   <data name="Site.Title" xml:space="preserve">
     <value>Care Center Demo</value>

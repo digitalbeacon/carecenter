@@ -28,6 +28,7 @@ INSERT INTO [sitebase].[NavigationItem] ([Id],[ModificationCounter],[Association
 INSERT INTO [sitebase].[NavigationItem] ([Id],[ModificationCounter],[AssociationId],[NavigationId],[ParentId],[DisplayOrder],[Text],[ModuleId],[Url],[ImageUrl])VALUES(15,0,NULL,1,9,1,'Roles',NULL,'/roles',NULL)
 INSERT INTO [sitebase].[NavigationItem] ([Id],[ModificationCounter],[AssociationId],[NavigationId],[ParentId],[DisplayOrder],[Text],[ModuleId],[Url],[ImageUrl])VALUES(16,0,NULL,1,9,1,'Permissions',NULL,'/permissions',NULL)
 INSERT INTO [sitebase].[NavigationItem] ([Id],[ModificationCounter],[AssociationId],[NavigationId],[ParentId],[DisplayOrder],[Text],[ModuleId],[Url],[ImageUrl])VALUES(17,0,NULL,1,9,1,'Audit Log',NULL,'/auditLog',NULL)
+INSERT INTO [sitebase].[NavigationItem] ([Id],[ModificationCounter],[AssociationId],[NavigationId],[ParentId],[DisplayOrder],[Text],[ModuleId],[Url],[ImageUrl])VALUES(18,0,NULL,1,9,1,'Localization',NULL,'/localization',NULL)
 
 SET IDENTITY_INSERT [sitebase].[NavigationItem] OFF
 	
@@ -63,6 +64,8 @@ INSERT [sitebase].[Permission] ([Key1],[Key3],[EntityTypeId],[EntityId],[Mask])
 	VALUES('SitePath','/navigationItems',3,1,1)
 INSERT [sitebase].[Permission] ([Key1],[Key3],[EntityTypeId],[EntityId],[Mask])
 	VALUES('SitePath','/auditLog',3,1,1)
+INSERT [sitebase].[Permission] ([Key1],[Key3],[EntityTypeId],[EntityId],[Mask])
+	VALUES('SitePath','/localization',3,1,1)
 INSERT [sitebase].[Permission] ([Key1],[Key3],[EntityTypeId],[EntityId],[Mask])
 	VALUES('SitePath','/queuedEmails',3,1,1)
 INSERT [sitebase].[Permission] ([Key1],[Key3],[EntityTypeId],[EntityId],[Mask])

@@ -134,3 +134,13 @@
 		}
 	}).blur();
 </content>
+
+<content name="readyScript" if="RenderPartial">
+	$.sb.modalBoxOnClose(function() { 
+		setTimeout(function() { 
+			if (!$('#clientEditPanel').length) {
+				$('#clientListPanel').trigger('refresh');
+			}
+		}, 100);
+	});	
+</content>
