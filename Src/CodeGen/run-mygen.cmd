@@ -2,7 +2,9 @@
 
 cd MyGeneration\Projects
 
-..\..\..\..\Base\CodeGen\MyGeneration\ZeusCmd.exe -p CareCenter.zprj
+for %%i in (*.zprj) do (
+	..\..\..\..\Base\CodeGen\MyGeneration\ZeusCmd.exe -p %%i
+)
 
 cd ..\..
 
